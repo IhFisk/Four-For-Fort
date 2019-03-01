@@ -89,7 +89,12 @@ public class CRandomMatchmaking : MonoBehaviour
             // using null as TypedLobby parameter will also use the default lobby
             Joined = true;
             ChampSelect = true;
-            PhotonNetwork.CreateRoom(roomName, new RoomOptions() { MaxPlayers = 10 }, TypedLobby.Default);
+            RoomOptions options = new RoomOptions() { isVisible = true, maxPlayers = 4 };
+            options.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "prop1", "MultiTest2" }, { "prop2", 4 } };
+            options.CustomRoomPropertiesForLobby = new string[] { "prop1", "prop2" };
+            PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
+
+            //PhotonNetwork.CreateRoom(roomName, new RoomOptions() { MaxPlayers = 10 }, TypedLobby.Default);
         }
         GUILayout.EndHorizontal();
 
@@ -175,7 +180,7 @@ public class CRandomMatchmaking : MonoBehaviour
 
     void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel(PhotonNetwork.room.CustomProperties["propertyName"].ToString());
+        PhotonNetwork.LoadLevel(PhotonNetwork.room.CustomProperties["prop1"].ToString());
     }
     
 }
