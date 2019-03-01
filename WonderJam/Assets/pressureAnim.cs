@@ -12,17 +12,21 @@ public class pressureAnim : MonoBehaviour
     void Start()
     {
         plateCollider = GetComponent<SphereCollider>();
+        isPressured = false;
+        Debug.Log("enyter");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        isPressured = false;
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         isPressured = true;
+        Debug.Log("enyter");
         PlatePressured();
     }
 
