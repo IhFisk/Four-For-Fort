@@ -90,7 +90,7 @@ public class CRandomMatchmaking : MonoBehaviour
             Joined = true;
             ChampSelect = true;
             RoomOptions options = new RoomOptions() { isVisible = true, maxPlayers = 4 };
-            options.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "prop1", "MultiTest2" }, { "prop2", 4 } };
+            options.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "prop1", "SampleSceneMulti 1" }, { "prop2", 4 } };
             options.CustomRoomPropertiesForLobby = new string[] { "prop1", "prop2" };
             PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
 
