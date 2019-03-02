@@ -12,15 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MultiTest.unity
     guid: 8f0ddb06caa1da24c94ad1b29b6fec95
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 4a072647b15057b408a7cd5b9cc5c9e3
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f845fe120327dda4297507f50cd911e2
   - enabled: 1
     path: Assets/Scenes/Multi 2.unity
     guid: a9e772ec838183b428431a2682ece01c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Multi3.unity
     guid: 3c5ba6cd7cc4b76438cc01f7a571d47b
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 4a072647b15057b408a7cd5b9cc5c9e3
   m_configObjects: {}
