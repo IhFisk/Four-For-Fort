@@ -7856,7 +7856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMesh: {fileID: 777477080}
   connectingText: {fileID: 1155761459}
-  sceneName: Multi 2
+  sceneName: MainScene
 --- !u!1001 &1361067504
 PrefabInstance:
   m_ObjectHideFlags: 0

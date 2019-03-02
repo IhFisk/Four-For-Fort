@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class ZombieCharacterControl : MonoBehaviour
+public class ZombieCharacterControl : Photon.MonoBehaviour
 {
     private enum ControlMode
     {
@@ -32,7 +32,11 @@ public class ZombieCharacterControl : MonoBehaviour
 
 	void FixedUpdate ()
     {
-        switch(m_controlMode)
+        if (!photonView.isMine)
+        {
+            return;
+        }
+        switch (m_controlMode)
         {
             case ControlMode.Direct:
                 DirectUpdate();

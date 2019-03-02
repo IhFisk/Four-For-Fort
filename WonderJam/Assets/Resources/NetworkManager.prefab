@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948534347042e6b44a33a8a4d84ac3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefabName: MaleFree1
+  playerPrefabName: MaleFree2
+  player2PrefabName: Player2
   rouge: {fileID: 7734298513615130084}
   bleu: {fileID: 7734298513615130084}
 --- !u!114 &1949302512
