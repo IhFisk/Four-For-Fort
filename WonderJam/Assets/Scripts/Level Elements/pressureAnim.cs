@@ -12,7 +12,7 @@ public class pressureAnim : MonoBehaviour
 
     public GameObject[] objectsToActive;
 
-    private GameObject thisObject;
+    public GameObject thisObject;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +31,8 @@ public class pressureAnim : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isPressured = true;
-        activatingGo = other.gameObject;
-        PlatePressured();
         thisObject = other.gameObject;
+        PlatePressured();
     }
 
     private void OnTriggerExit(Collider other)
@@ -49,7 +48,6 @@ public class pressureAnim : MonoBehaviour
         plateMat[0].color = Color.green;
         plateMat[1].color = Color.green;
 
-        //activeGameObject(true);
         activeGameObject(true);
         // ajouter un petit son d'activation sympathique
     }
@@ -60,7 +58,6 @@ public class pressureAnim : MonoBehaviour
         plateMat[0].color = defaultColor;
         plateMat[1].color = defaultColor;
 
-        //activeGameObject(false);
         activeGameObject(false);
         // ajouter (peut-etre) un petit son de désactivation sympathique
     }
