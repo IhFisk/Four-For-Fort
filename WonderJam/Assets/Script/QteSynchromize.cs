@@ -35,19 +35,22 @@ public class QteSynchromize : MonoBehaviour
             if (active.getActive())
             {
                 GetComponentInParent<Canvas>().enabled = true;
-
-                if (active.activatingGo.GetComponent<PhotonView>())
+                foreach(GameObject go in active.activatingGos)
                 {
-                    if (active.activatingGo.GetPhotonView().isMine)
+                    if (go.GetComponent<PhotonView>())
                     {
-                        if (Input.GetKeyDown(KeyCode.E))
+                        if (go.GetPhotonView().isMine)
                         {
-                            PhotonView photonView = PhotonView.Get(this);
-                            photonView.RPC("incFillAmount", PhotonTargets.AllViaServer, 0.15f);
-                            //incFillAmount(0.15f);
+                            if (Input.GetKeyDown(KeyCode.E))
+                            {
+                                PhotonView photonView = PhotonView.Get(this);
+                                photonView.RPC("incFillAmount", PhotonTargets.AllViaServer, 0.15f);
+                                //incFillAmount(0.15f);
+                            }
                         }
                     }
                 }
+                
 
                 /*GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
                 foreach (GameObject go in gos)
@@ -97,20 +100,6 @@ public class QteSynchromize : MonoBehaviour
                     }
                 }
             }
-
-
-            /*GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject go in gos)
-            {
-                if (go.GetPhotonView().isMine)
-                {
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        door.incDoorPosition();
-                    }
-                }
-            }*/
-
         }
 
     }
