@@ -18,6 +18,15 @@ public class RoundAboutScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(gravityCenter.position, Vector3.up, angle );
+        rotateRigidBodyAroundPointBy(transform.GetComponent<Rigidbody>(), gravityCenter.position, Vector3.up, angle);
+
+        //transform.RotateAround(gravityCenter.position, Vector3.up, angle );
+    }
+
+    public void rotateRigidBodyAroundPointBy(Rigidbody rb, Vector3 origin, Vector3 axis, float angle)
+    {
+        Quaternion q = Quaternion.AngleAxis(angle, axis);
+        rb.MovePosition(q * (rb.transform.position - origin) + origin);
+        rb.MoveRotation(rb.transform.rotation * q);
     }
 }
