@@ -36,10 +36,20 @@ public class QteSynchromize : MonoBehaviour
             {
                 GetComponentInParent<Canvas>().enabled = true;
 
-                if (Input.GetKeyDown(KeyCode.E))
+
+                GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
+                foreach (GameObject go in gos)
                 {
-                    incFillAmount(0.15f);
+                    if (go.GetPhotonView().isMine)
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            incFillAmount(0.15f);
+                        }
+                    }
                 }
+
+              
             }
             else
             {
@@ -65,10 +75,18 @@ public class QteSynchromize : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject go in gos)
             {
-                door.incDoorPosition();
+                if (go.GetPhotonView().isMine)
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        door.incDoorPosition();
+                    }
+                }
             }
+          
         }
 
     }
