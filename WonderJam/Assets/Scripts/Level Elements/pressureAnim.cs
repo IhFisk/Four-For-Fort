@@ -61,7 +61,7 @@ public class pressureAnim : MonoBehaviour
         plateMat[1].color = defaultColor;
 
         //activeGameObject(false);
-        activeGameObject(true);
+        activeGameObject(false);
         // ajouter (peut-etre) un petit son de désactivation sympathique
     }
 

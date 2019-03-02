@@ -78,10 +78,10 @@ public class CameraController : MonoBehaviour
 
         }
 
+        lerpFov();
 
         if (!rotLockFlag)
         {
-            setFov(60);
             GetComponent<SmoothLookAt>().target = null;
 
             //Get inputs
@@ -190,7 +190,7 @@ public class CameraController : MonoBehaviour
      * @brief set the next fov value and prepare the lerpFov() method
      * @params value The fov value 
      **/
-    private void setFov(float value)
+    public void setFov(float value)
     {
         nextFov = value;
         fovHasToBeenSet = true;

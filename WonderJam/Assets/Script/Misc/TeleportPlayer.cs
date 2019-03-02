@@ -14,6 +14,7 @@ public class TeleportPlayer : MonoBehaviour
     private GameObject player;
 
     private float time = 0.0f;
+    private bool isInstantiate = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,6 @@ public class TeleportPlayer : MonoBehaviour
                 {
                     player = active.getPlayer();
                     pos_found = true;
-                    active.setActive(false);
                 }
             }
         }
@@ -41,9 +41,27 @@ public class TeleportPlayer : MonoBehaviour
         if (pos_found)
         {
             time += Time.deltaTime;
-            //Instantiate();
-            if(time > 0.5f)
+
+            Camera.main.GetComponentInParent<CameraController>().setFov(35);
+
+            if (!isInstantiate)
             {
+                Destroy(Instantiate(particleEffect, new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z), Quaternion.identity), 0.5f);
+                isInstantiate = true;
+            }
+
+
+            if (time > 0.4f)
+            {
+                Camera.main.GetComponentInParent<CameraController>().setFov(60);
+            }
+
+              if (time > 0.5f && pos_found)
+            {
+                player.transform.position = transform.position;
+                Destroy(Instantiate(particleEffect, player.transform.position, Quaternion.identity), 0.5f);  
+                pos_found = false;
+                time = 0.0f;
 
             }
         }

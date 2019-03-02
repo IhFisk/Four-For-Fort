@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextCheckpoint: {fileID: 7137633669428587530}
+  baseCheckPoint: {fileID: 3871611866551753665}
 --- !u!1 &1613780810813857137
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextCheckpoint: {fileID: 8788218340184443163}
+  baseCheckPoint: {fileID: 3871611866551753665}
 --- !u!1 &3871611866551753665
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextCheckpoint: {fileID: 3954559517079784615}
+  baseCheckPoint: {fileID: 3871611866551753665}
 --- !u!1 &7137633669428587530
 GameObject:
   m_ObjectHideFlags: 0
