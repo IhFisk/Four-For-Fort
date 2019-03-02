@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
+
 
 
 public class SimpleCharacterControl : MonoBehaviour {
@@ -102,14 +104,13 @@ public class SimpleCharacterControl : MonoBehaviour {
     void Start()
     {
         m_rigidBody = GetComponent<Rigidbody>();
+        m_animator = GetComponent<Animator>();
     }
 
 	void Update () {
         m_animator.SetBool("Grounded", m_isGrounded);
         Move();
-        Animating();
-        /*
-        switch(m_controlMode)
+        /* switch(m_controlMode)
         {
             case ControlMode.Direct:
                 DirectUpdate();
@@ -139,7 +140,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
 
         // Getting the direction of the camera
-        Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH ;
+        Vector3 direction = -camera.forward * m_currentV + camera.right * m_currentH ;
 
         float directionLength = direction.magnitude;
         direction.y = 0;
@@ -151,26 +152,8 @@ public class SimpleCharacterControl : MonoBehaviour {
             transform.rotation = Quaternion.LookRotation(m_currentDirection);
             transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
         }
+        m_animator.SetFloat("MoveSpeed", -m_currentV); //current velocity of the player
     }
-
-    // Animating the player
-    void Animating()
-    {
-        m_animator.SetFloat("MoveSpeed", m_currentV);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
