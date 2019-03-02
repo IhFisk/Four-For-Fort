@@ -7,6 +7,7 @@ public class PlayUi : MonoBehaviour
 {
     public TextMeshPro textMesh;
     public TextMeshPro connectingText;
+    public string sceneName= "Multi 2";
 
     GUIStyle style;
     bool Joined = false;
@@ -81,7 +82,7 @@ public class PlayUi : MonoBehaviour
             Joined = true;
             ChampSelect = true;
             RoomOptions options = new RoomOptions() { isVisible = true, maxPlayers = 4 };
-            options.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "prop1", "SampleSceneMulti 1" }, { "prop2", 4 } };
+            options.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "prop1", sceneName }, { "prop2", 4 } };
             options.CustomRoomPropertiesForLobby = new string[] { "prop1", "prop2" };
             PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
             //PhotonNetwork.CreateRoom(roomName, new RoomOptions() { MaxPlayers = 10 }, TypedLobby.Default);
