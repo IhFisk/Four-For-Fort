@@ -23,8 +23,8 @@ public class QteSynchromize : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not active   ");
-            GetComponentInParent<Canvas>().enabled = false;
+           /* Debug.Log("Not active   ");
+            GetComponentInParent<Canvas>().enabled = false;*/
         }
     }
 
