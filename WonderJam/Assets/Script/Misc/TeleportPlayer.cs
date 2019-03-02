@@ -41,8 +41,7 @@ public class TeleportPlayer : MonoBehaviour
         if (pos_found)
         {
             time += Time.deltaTime;
-
-            Camera.main.GetComponentInParent<CameraController>().setFov(35);
+            
 
             if (!isInstantiate)
             {
