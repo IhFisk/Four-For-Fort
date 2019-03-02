@@ -9,7 +9,7 @@ public class SimpleCharacterControlV2 : Photon.MonoBehaviour
         Tank,
         Direct
     }
-
+    public GameObject camera;
     [SerializeField] private float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
     [SerializeField] private float m_jumpForce = 4;
@@ -34,7 +34,7 @@ public class SimpleCharacterControlV2 : Photon.MonoBehaviour
 
     private bool m_isGrounded;
     private List<Collider> m_collisions = new List<Collider>();
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         ContactPoint[] contactPoints = collision.contacts;

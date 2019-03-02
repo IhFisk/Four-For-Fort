@@ -46,6 +46,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         //Init rotation values;
         resetCameraRotation();
 
@@ -59,7 +60,23 @@ public class CameraController : MonoBehaviour
     {
         //if (Input.GetKeyDown(KeyCode.G)) rotLockFlag = !rotLockFlag;
         //if (Input.GetKeyDown(KeyCode.E)) initDampedShaking();
+        if(!cameraTarget)
+        {
+            GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject go in gos)
+            {
+                if (go.GetPhotonView().isMine)
+                {
+                    Transform[] ts = go.GetComponentsInChildren<Transform>();
+                    foreach (Transform t in ts)
+                    {
+                        if (t.gameObject.name == "PlayerCameraTarget")
+                            cameraTarget = t.gameObject;
+                    }
+                }
+            }
 
+        }
 
 
         if (!rotLockFlag)
