@@ -59,10 +59,16 @@ public class QteSynchromize : MonoBehaviour
             {
                 terminate = true;
                 fillImage.fillAmount = 1.0f;
-                otherImage.fillAmount = 1.0f;
-                door.setTheDoorMovement(true);
+                otherImage.fillAmount = 1.0f;                
             }
 
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                door.incDoorPosition();
+            }
         }
 
     }
