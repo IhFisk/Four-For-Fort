@@ -21,6 +21,11 @@ public class QteSynchromize : MonoBehaviour
         {
             GetComponentInParent<Canvas>().enabled = true;
         }
+        else
+        {
+            Debug.Log("Not active   ");
+            GetComponentInParent<Canvas>().enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -2,8 +2,10 @@ fileFormatVersion: 2
 guid: 92cba01c6789d1f47888286cff6a07e6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ProgresseBar_0
-    21300002: ProgresseBar_1
+    21300000: Outline
+    21300002: Fill
+    21300004: EPasPress
+    21300006: EPress
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -86,7 +88,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ProgresseBar_0
+      name: Outline
       rect:
         serializedVersion: 2
         x: 76
@@ -94,7 +96,7 @@ TextureImporter:
         width: 138
         height: 663
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -106,7 +108,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProgresseBar_1
+      name: Fill
       rect:
         serializedVersion: 2
         x: 333
@@ -114,13 +116,53 @@ TextureImporter:
         width: 122
         height: 652
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: bc9beea3d1438b84aafea1c829b04b01
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EPasPress
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 341
+        width: 155
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fef8a5d961a23845835a26105a19023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EPress
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 637
+        width: 155
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d99de5c863a3adc4c866b511cb6ac021
       vertices: []
       indices: 
       edges: []
