@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class DoorOpening : MonoBehaviour
 {
+    private Activate active;
     Animator anim;
-    Active active;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        active = GetComponent<Active>();
+        active = GetComponent<Activate>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(getActive())
+        if(active.getActive())
         {
             anim.SetTrigger("IsOpened");
         }

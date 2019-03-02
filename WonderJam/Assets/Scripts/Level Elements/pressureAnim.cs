@@ -52,6 +52,7 @@ public class pressureAnim : MonoBehaviour
         transform.localScale += new Vector3(0, 0.1f, 0);
         plateMat[0].color = defaultColor;
         plateMat[1].color = defaultColor;
+
         // ajouter (peut-etre) un petit son de désactivation sympathique
     }
 
