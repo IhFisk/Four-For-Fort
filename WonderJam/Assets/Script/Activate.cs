@@ -30,8 +30,7 @@ public class Activate : MonoBehaviour
     {
         return player;
     }
-    
-    public void setActive(bool new_active, GameObject go)
+    public void setActiveWithRef(bool new_active, GameObject go)
     {
         isActive = new_active;
         activatingGo = go;

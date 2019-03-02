@@ -22,7 +22,7 @@ public class QteSynchromize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        active = GetComponent<Activate>();        
+        active = GetComponent<Activate>();
     }
 
     // Update is called once per frame
@@ -36,20 +36,32 @@ public class QteSynchromize : MonoBehaviour
             {
                 GetComponentInParent<Canvas>().enabled = true;
 
+                if (active.activatingGo.GetComponent<PhotonView>())
+                {
+                    if (active.activatingGo.GetPhotonView().isMine)
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            PhotonView photonView = PhotonView.Get(this);
+                            photonView.RPC("incFillAmount", PhotonTargets.AllViaServer, 0.15f);
+                            //incFillAmount(0.15f);
+                        }
+                    }
+                }
 
-                GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
+                /*GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
                 foreach (GameObject go in gos)
                 {
-                    if (active.getPlayer() && go.GetPhotonView() == active.getPlayer().GetPhotonView())
+                    if (go.GetPhotonView().isMine)
                     {
                         if (Input.GetKeyDown(KeyCode.E))
                         {
                             incFillAmount(0.15f);
                         }
                     }
-                }
+                }*/
 
-              
+
             }
             else
             {
@@ -65,20 +77,19 @@ public class QteSynchromize : MonoBehaviour
             fillImage.fillAmount = fillAmount;
 
 
-            if(fillImage.fillAmount > 0.95 && otherImage.fillAmount > 0.95)
+            if (fillImage.fillAmount > 0.95 && otherImage.fillAmount > 0.95)
             {
                 terminate = true;
                 fillImage.fillAmount = 1.0f;
-                otherImage.fillAmount = 1.0f;                
+                otherImage.fillAmount = 1.0f;
             }
 
         }
         else
         {
-            GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject go in gos)
+            if (active.activatingGo.GetComponent<PhotonView>())
             {
-                if (active.getPlayer() && go.GetPhotonView() == active.getPlayer().GetPhotonView())
+                if (active.activatingGo.GetPhotonView().isMine)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -86,23 +97,30 @@ public class QteSynchromize : MonoBehaviour
                     }
                 }
             }
-            if (fillImage.fillAmount < 0.05 && otherImage.fillAmount < 0.05)
+
+
+            /*GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject go in gos)
             {
-                terminate = false;
-                fillImage.fillAmount = 0.0f;
-                otherImage.fillAmount = 0.0f;
-                fillAmount = 0.0f;
-            }
+                if (go.GetPhotonView().isMine)
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        door.incDoorPosition();
+                    }
+                }
+            }*/
+
         }
 
     }
 
-
+    [PunRPC]
     void incFillAmount(float new_value)
     {
         fillAmount += new_value;
 
-        if(fillAmount > 1)
+        if (fillAmount > 1)
         {
             fillAmount = 1.0f;
         }
@@ -112,7 +130,7 @@ public class QteSynchromize : MonoBehaviour
             fillAmount = 0.0f;
         }
     }
-    
+
 
 
 }

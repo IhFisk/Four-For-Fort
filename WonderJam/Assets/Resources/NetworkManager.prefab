@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7734298513615130090}
   - component: {fileID: 7734298513615130085}
+  - component: {fileID: 1949302512}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -44,3 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabName: MaleFree1
+  rouge: {fileID: 7734298513615130084}
+  bleu: {fileID: 7734298513615130084}
+--- !u!114 &1949302512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734298513615130084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6587c8104d7524f4280d0a68dd779f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

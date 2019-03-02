@@ -15412,7 +15412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMesh: {fileID: 777477080}
   connectingText: {fileID: 1155761459}
-  sceneName: Multi 2
+  sceneName: Multi3
 --- !u!1001 &1348502221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18697,7 +18697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1637040715
 Transform:
   m_ObjectHideFlags: 0
