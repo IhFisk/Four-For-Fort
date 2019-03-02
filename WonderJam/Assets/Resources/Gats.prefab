@@ -4583,7 +4583,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6410927760383085888}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -5096,7 +5096,7 @@ GameObject:
   - component: {fileID: 6410927760572336980}
   - component: {fileID: 6410927760572336983}
   - component: {fileID: 6410927760572336982}
-  - component: {fileID: 6410927760572336977}
+  - component: {fileID: 6410927758950173110}
   m_Layer: 0
   m_Name: roof_square_23
   m_TagString: Untagged
@@ -5177,7 +5177,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.249999, y: 1, z: 11.249999}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &6410927760572336977
+--- !u!114 &6410927758950173110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5186,7 +5186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6410927760572336979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b86638e602991f49bcf7d64abcc3f57, type: 3}
+  m_Script: {fileID: 11500000, guid: 49700be37109bae40b05d442cbd8a057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToActive:
@@ -5416,7 +5416,7 @@ GameObject:
   - component: {fileID: 6410927760840764097}
   - component: {fileID: 6410927760840764096}
   - component: {fileID: 6410927760840764099}
-  - component: {fileID: 6410927760840764098}
+  - component: {fileID: 6410927758950173109}
   m_Layer: 0
   m_Name: roof_square_23
   m_TagString: Untagged
@@ -5497,7 +5497,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.249999, y: 1, z: 11.249999}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &6410927760840764098
+--- !u!114 &6410927758950173109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5506,7 +5506,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6410927760840764124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b86638e602991f49bcf7d64abcc3f57, type: 3}
+  m_Script: {fileID: 11500000, guid: 49700be37109bae40b05d442cbd8a057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToActive:

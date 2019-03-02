@@ -14,7 +14,7 @@ public class QteSynchromize : MonoBehaviour
 
     public moveBarriere door;
 
-    private float cooldown = 0.2f;
+    private float cooldown = 0.15f;
     private float time = 0.0f;
 
     private bool terminate = false;
@@ -50,20 +50,6 @@ public class QteSynchromize : MonoBehaviour
                         }
                     }
                 }
-                
-
-                /*GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
-                foreach (GameObject go in gos)
-                {
-                    if (go.GetPhotonView().isMine)
-                    {
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            incFillAmount(0.15f);
-                        }
-                    }
-                }*/
-
 
             }
             else
@@ -74,7 +60,8 @@ public class QteSynchromize : MonoBehaviour
 
             if (time > cooldown)
             {
-                incFillAmount(-0.1f);
+                PhotonView photonView = PhotonView.Get(this);
+                photonView.RPC("incFillAmount", PhotonTargets.AllViaServer, -0.1f);
                 time = 0.0f;
             }
             fillImage.fillAmount = fillAmount;
@@ -90,13 +77,16 @@ public class QteSynchromize : MonoBehaviour
         }
         else
         {
-            if (active.activatingGo.GetComponent<PhotonView>())
+            if (active.getActive())
             {
-                if (active.activatingGo.GetPhotonView().isMine)
+                if (active.activatingGo.GetComponent<PhotonView>())
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (active.activatingGo.GetPhotonView().isMine)
                     {
-                        door.incDoorPosition();
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            door.incDoorPosition();
+                        }
                     }
                 }
             }
