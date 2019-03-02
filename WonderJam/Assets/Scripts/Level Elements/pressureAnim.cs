@@ -9,6 +9,8 @@ public class pressureAnim : MonoBehaviour
     Color defaultColor;
     bool isPressured;
 
+    public GameObject objectToActive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,17 +39,24 @@ public class pressureAnim : MonoBehaviour
 
     void PlatePressured()
     {
-        transform.localScale += new Vector3(0, -0.2f, 0);
+        transform.localScale += new Vector3(0, -0.1f, 0);
         plateMat[0].color = Color.green;
         plateMat[1].color = Color.green;
+
+        activeGameObject();
         // ajouter un petit son d'activation sympathique
     }
 
     void PlateDepressured()
     {
-        transform.localScale += new Vector3(0, 0.2f, 0);
+        transform.localScale += new Vector3(0, 0.1f, 0);
         plateMat[0].color = defaultColor;
         plateMat[1].color = defaultColor;
         // ajouter (peut-etre) un petit son de désactivation sympathique
+    }
+
+    void activeGameObject()
+    {
+        objectToActive.GetComponent<Activate>().setActive(true);
     }
 }
