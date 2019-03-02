@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleSceneMulti 1.unity
     guid: 8a4a0a6149e6aa144bed5153b2542a53
+  - enabled: 1
+    path: Assets/Scenes/Multi 2.unity
+    guid: a9e772ec838183b428431a2682ece01c
   m_configObjects: {}

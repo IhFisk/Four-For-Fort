@@ -59,6 +59,7 @@ public class CGameManager : Photon.MonoBehaviour
 
         // Spawn our local player
         GameObject cube;
+        //PhotonNetwork.player.se
         if (PhotonNetwork.playerList.Length<3)
         {
             PhotonNetwork.player.SetTeam(PunTeams.Team.red);
