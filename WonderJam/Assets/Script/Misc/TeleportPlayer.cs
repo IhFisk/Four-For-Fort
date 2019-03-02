@@ -30,7 +30,7 @@ public class TeleportPlayer : MonoBehaviour
             GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject go in gos)
             {
-                if (active.getPlayer() && go.GetPhotonView() == active.getPlayer().GetPhotonView())
+                if (active.getPlayer() && go.GetPhotonView().owner == active.getPlayer().GetPhotonView().owner)
                 {
                     player = active.getPlayer();
                     pos_found = true;
