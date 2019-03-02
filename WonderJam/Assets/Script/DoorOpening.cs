@@ -17,15 +17,22 @@ public class DoorOpening : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(active.getActive())
+        if(active.getActive() && !anim.GetBool("IsOpen"))
         {
-            anim.SetTrigger("IsOpened");
+            anim.SetBool("IsOpen", true);
+            //transform.Rotate(0, 90, 0, Space.World);
+        }
+        else if(!active.getActive() && anim.GetBool("IsOpen"))
+        {
+            anim.enabled = true;
+            anim.SetBool("IsOpen", false);
+            //transform.Rotate(0, -90, 0, Space.World);
         }
     }
 
     void DoorOpened()
     {
-        anim.enabled = false;
+        //anim.enabled = false;
     }
 
 }

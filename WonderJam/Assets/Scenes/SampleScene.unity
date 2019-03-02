@@ -544,7 +544,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1041867021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452d5010451d04244bb54f0993f9cc61, type: 3}
+  m_Script: {fileID: 11500000, guid: 102ee243e7a404846bf85c231f7bc620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &1041867023
@@ -579,6 +579,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+--- !u!65 &1041867025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041867021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6796705, y: 16.297802, z: 7.892501}
+  m_Center: {x: -0.35513464, y: 8.321217, z: 3.8935957}
 --- !u!1001 &1102527470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1009,7 +1022,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1813156260, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
+      propertyPath: objectsToActive.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813156260, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
       propertyPath: objectToActive
+      value: 
+      objectReference: {fileID: 1041867021}
+    - target: {fileID: 1813156260, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
+      propertyPath: objectsToActive.Array.data[0]
       value: 
       objectReference: {fileID: 1041867021}
     m_RemovedComponents: []
