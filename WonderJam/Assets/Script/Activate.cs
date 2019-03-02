@@ -9,13 +9,11 @@ public class Activate : MonoBehaviour
 
     public void setActive(bool new_active)
     {
-        Debug.Log("Get active " + new_active);
         isActive = new_active;
     }
 
     public bool getActive()
     {
-        Debug.Log("Get active " + isActive);
         return isActive;
     }
 
