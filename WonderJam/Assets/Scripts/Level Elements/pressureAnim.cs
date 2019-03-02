@@ -6,6 +6,7 @@ public class pressureAnim : MonoBehaviour
 {
     Material[] plateMat;
     BoxCollider plateCollider;
+    GameObject activatingGo;
     Color defaultColor;
     bool isPressured;
 
@@ -28,12 +29,14 @@ public class pressureAnim : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isPressured = true;
+        activatingGo = other.gameObject;
         PlatePressured();
     }
 
     private void OnTriggerExit(Collider other)
     {
         isPressured = false;
+        //retirer le Go qui a activé ?? 
         PlateDepressured();
     }
 
@@ -43,7 +46,8 @@ public class pressureAnim : MonoBehaviour
         plateMat[0].color = Color.green;
         plateMat[1].color = Color.green;
 
-        activeGameObject(true);
+        //activeGameObject(true);
+        activeGameObjectWithRef(true);
         // ajouter un petit son d'activation sympathique
     }
 
@@ -53,15 +57,24 @@ public class pressureAnim : MonoBehaviour
         plateMat[0].color = defaultColor;
         plateMat[1].color = defaultColor;
 
-        activeGameObject(false);
+        //activeGameObject(false);
+        activeGameObjectWithRef(true);
         // ajouter (peut-etre) un petit son de désactivation sympathique
     }
 
     void activeGameObject(bool new_active)
     {
-        foreach(GameObject go in objectsToActive)
+        foreach (GameObject go in objectsToActive)
         {
             go.GetComponent<Activate>().setActive(new_active);
+        }
+    }
+
+    void activeGameObjectWithRef(bool new_active)
+    {
+        foreach (GameObject go in objectsToActive)
+        {
+            go.GetComponent<Activate>().setActive(new_active, activatingGo);
         }
     }
 }
