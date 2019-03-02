@@ -7,6 +7,7 @@ public class Activate : MonoBehaviour
 
     public bool isActive = false;
     public GameObject activatingGo;
+    public ArrayList activatingGos;
 
     public GameObject player;
 
@@ -34,6 +35,12 @@ public class Activate : MonoBehaviour
     {
         isActive = new_active;
         activatingGo = go;
+    }
+
+    public void setActiveWithMultipleRef(bool new_active, ArrayList gos)
+    {
+        isActive = new_active;
+        activatingGos = gos;
     }
 
 }
