@@ -11,13 +11,6 @@ public class CGameManager : Photon.MonoBehaviour
     private string roomName = "myRoom2";
     //public CSpawnManager spawnManager;
 
-    void OnJoinedRoom()
-    {
-
-        StartGame();
-        ScoreExtensions.SetScore(PhotonNetwork.player, 0);
-    }
-
     void Start()
     {
         StartGame();
@@ -29,9 +22,7 @@ public class CGameManager : Photon.MonoBehaviour
 
             PhotonNetwork.CreateRoom(roomName = null);
         else
-            PhotonNetwork.JoinRandomRoom();
-        //PhotonNetwork.LoadLevel("Scene02");
-        //StartGame();
+            PhotonNetwork.JoinRandomRoom(); 
     }
 
     IEnumerator OnLeftRoom()
@@ -65,7 +56,10 @@ public class CGameManager : Photon.MonoBehaviour
         objs[0] = enabledRenderers;*/
 
         // Spawn our local player
+     
         GameObject player = PhotonNetwork.Instantiate(this.playerPrefabName, transform.position, Quaternion.identity, 0/*, objs*/);
+        
+            
         //spawnManager.spawnStart();
     }
 
@@ -83,4 +77,6 @@ public class CGameManager : Photon.MonoBehaviour
     {
         Debug.LogWarning("OnDisconnectedFromPhoton");
     }
+
+
 }
