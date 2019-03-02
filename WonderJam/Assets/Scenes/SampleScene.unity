@@ -476,6 +476,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1041867024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041867021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18efdc418fea22f49b5e4d1da8ec56cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!1001 &1102527470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,7 +650,7 @@ GameObject:
   - component: {fileID: 1261097496}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -837,5 +850,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1813156260, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
+      propertyPath: objectToActive
+      value: 
+      objectReference: {fileID: 1041867021}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
