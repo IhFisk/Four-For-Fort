@@ -8,6 +8,8 @@ public class CGameManager : Photon.MonoBehaviour
     // this is a object name (must be in any Resources folder) of the prefab to spawn as player avatar.
     // read the documentation for info how to spawn dynamically loaded game objects at runtime (not using Resources folders)
     public string playerPrefabName = "Personnage";
+    public GameObject rouge;
+    public GameObject bleu;
     private string roomName = "myRoom2";
     //public CSpawnManager spawnManager;
 
@@ -56,8 +58,21 @@ public class CGameManager : Photon.MonoBehaviour
         objs[0] = enabledRenderers;*/
 
         // Spawn our local player
-     
-        GameObject player = PhotonNetwork.Instantiate(this.playerPrefabName, transform.position, Quaternion.identity, 0/*, objs*/);
+        GameObject cube;
+        if (PhotonNetwork.playerList.Length<3)
+        {
+            PhotonNetwork.player.SetTeam(PunTeams.Team.red);
+            cube = rouge;
+        }            
+        else
+        {
+            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
+            cube = bleu;
+        }
+            
+
+        
+        GameObject player = PhotonNetwork.Instantiate(this.playerPrefabName, cube.transform.position, Quaternion.identity, 0/*, objs*/);
         
             
         //spawnManager.spawnStart();

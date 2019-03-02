@@ -24,7 +24,7 @@ public class TeleportPlayer : MonoBehaviour
             {
                 if (go.GetPhotonView().isMine)
                 {
-                    
+                    active.getPlayer().transform.position = transform.position;
                 }
             }
         }
