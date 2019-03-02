@@ -61,7 +61,7 @@ public class QteSynchromize : MonoBehaviour
             if (time > cooldown)
             {
                 PhotonView photonView = PhotonView.Get(this);
-                photonView.RPC("incFillAmount", PhotonTargets.AllViaServer, -0.1f);
+                photonView.RPC("incFillAmount", PhotonTargets.AllBufferedViaServer, -0.1f);
                 time = 0.0f;
             }
             fillImage.fillAmount = fillAmount;
