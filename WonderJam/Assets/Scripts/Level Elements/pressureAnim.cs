@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class pressureAnim : MonoBehaviour
 {
-    Material plateMat;
-    SphereCollider plateCollider;
+    Material[] plateMat;
+    BoxCollider plateCollider;
     Color defaultColor;
     bool isPressured;
 
     // Start is called before the first frame update
     void Start()
     {
-        plateCollider = GetComponent<SphereCollider>();
+        plateCollider = GetComponent<BoxCollider>();
         isPressured = false;
-        plateMat = GetComponent<Renderer>().material;
-        defaultColor = plateMat.color;
+        plateMat = GetComponent<Renderer>().materials;
+        defaultColor = plateMat[0].color;
     }
 
     public bool GetStatePressure()
@@ -38,14 +38,16 @@ public class pressureAnim : MonoBehaviour
     void PlatePressured()
     {
         transform.localScale += new Vector3(0, -0.2f, 0);
-        plateMat.color = Color.green;
+        plateMat[0].color = Color.green;
+        plateMat[1].color = Color.green;
         // ajouter un petit son d'activation sympathique
     }
 
     void PlateDepressured()
     {
         transform.localScale += new Vector3(0, 0.2f, 0);
-        plateMat.color = defaultColor;
+        plateMat[0].color = defaultColor;
+        plateMat[1].color = defaultColor;
         // ajouter (peut-etre) un petit son de désactivation sympathique
     }
 }

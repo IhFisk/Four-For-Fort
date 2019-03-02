@@ -1,22 +1,62 @@
 fileFormatVersion: 2
-guid: 53cac4c70f0ed4345a5b933f3583fb2d
+guid: 1222e3572ee75c74a9dcf2bd0248db51
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: cylinder_hollow_13
-    100002: //RootNode
-    100004: sphere_dome_14
-    400000: cylinder_hollow_13
-    400002: //RootNode
-    400004: sphere_dome_14
-    2100000: customMaterial2
-    2100002: customMaterial1
-    2300000: cylinder_hollow_13
-    2300002: sphere_dome_14
-    3300000: cylinder_hollow_13
-    3300002: sphere_dome_14
-    4300000: cylinder_hollow_13
-    4300002: sphere_dome_14
+    100000: block_4
+    100002: block_5
+    100004: block_6
+    100006: block_7
+    100008: block_8
+    100010: block_corner_round_small_0
+    100012: block_corner_round_small_1
+    100014: block_corner_round_small_2
+    100016: block_corner_round_small_3
+    100018: //RootNode
+    100020: roof_square_23
+    400000: block_4
+    400002: block_5
+    400004: block_6
+    400006: block_7
+    400008: block_8
+    400010: block_corner_round_small_0
+    400012: block_corner_round_small_1
+    400014: block_corner_round_small_2
+    400016: block_corner_round_small_3
+    400018: //RootNode
+    400020: roof_square_23
+    2100000: border
+    2100002: bricks
+    2300000: block_4
+    2300002: block_5
+    2300004: block_6
+    2300006: block_7
+    2300008: block_8
+    2300010: block_corner_round_small_0
+    2300012: block_corner_round_small_1
+    2300014: block_corner_round_small_2
+    2300016: block_corner_round_small_3
+    2300018: roof_square_23
+    3300000: block_4
+    3300002: block_5
+    3300004: block_6
+    3300006: block_7
+    3300008: block_8
+    3300010: block_corner_round_small_0
+    3300012: block_corner_round_small_1
+    3300014: block_corner_round_small_2
+    3300016: block_corner_round_small_3
+    3300018: roof_square_23
+    4300000: block_corner_round_small_0
+    4300002: block_corner_round_small_1
+    4300004: block_corner_round_small_2
+    4300006: block_corner_round_small_3
+    4300008: block_4
+    4300010: block_5
+    4300012: block_6
+    4300014: block_7
+    4300016: block_8
+    4300018: roof_square_23
   externalObjects: {}
   materials:
     importMaterials: 1
