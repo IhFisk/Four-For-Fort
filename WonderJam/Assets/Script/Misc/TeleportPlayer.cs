@@ -22,9 +22,9 @@ public class TeleportPlayer : MonoBehaviour
             GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject go in gos)
             {
-                if (go.GetPhotonView().isMine)
+                if (active.getPlayer() && go.GetPhotonView() == active.getPlayer().GetPhotonView())
                 {
-                    
+                    active.getPlayer().transform.position = transform.position;
                 }
             }
         }

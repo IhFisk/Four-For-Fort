@@ -11,6 +11,8 @@ public class pressureAnim : MonoBehaviour
 
     public GameObject[] objectsToActive;
 
+    private GameObject thisObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class pressureAnim : MonoBehaviour
     {
         isPressured = true;
         PlatePressured();
+        thisObject = other.gameObject;
     }
 
     private void OnTriggerExit(Collider other)
@@ -61,7 +64,18 @@ public class pressureAnim : MonoBehaviour
     {
         foreach(GameObject go in objectsToActive)
         {
-            go.GetComponent<Activate>().setActive(new_active);
+            Activate acv = go.GetComponent<Activate>();
+            acv.setActive(new_active);
+
+            if (thisObject)
+            {
+                acv.setPlayer(thisObject);
+            }
         }
+    }
+
+    public void setGameObject(GameObject objectToActive)
+    {
+        objectsToActive[0] = objectToActive;
     }
 }

@@ -6,6 +6,8 @@ TextureImporter:
     21300002: Fill
     21300004: EPasPress
     21300006: EPress
+    21300008: Press
+    21300010: Vide
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -163,6 +165,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d99de5c863a3adc4c866b511cb6ac021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Press
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 140
+        width: 334
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a60911d579b6bc41886a6e488c8c796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vide
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 781
+        width: 120
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8916313e32449c64589d460a5d85ec2a
       vertices: []
       indices: 
       edges: []

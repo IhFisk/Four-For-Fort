@@ -8,7 +8,7 @@ public class SwitchImage : MonoBehaviour
 {
 
 
-    public float deltaTime = 0.2f;
+    public float deltaTime = 0.1f;
     public Sprite baseSprite;
     public Sprite spriteToSwitch;
 
@@ -30,11 +30,13 @@ public class SwitchImage : MonoBehaviour
         if(currentTime >= deltaTime)
         {
             imageComponent.sprite = spriteToSwitch;
-            currentTime = 0.0f;
         }
-        else
+        
+        if(currentTime >= 2* deltaTime)
         {
             imageComponent.sprite = baseSprite;
+            currentTime = 0.0f;
+
         }
     }
 }

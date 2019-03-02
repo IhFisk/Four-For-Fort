@@ -40,7 +40,7 @@ public class QteSynchromize : MonoBehaviour
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
                 foreach (GameObject go in gos)
                 {
-                    if (go.GetPhotonView().isMine)
+                    if (active.getPlayer() && go.GetPhotonView() == active.getPlayer().GetPhotonView())
                     {
                         if (Input.GetKeyDown(KeyCode.E))
                         {
@@ -78,7 +78,7 @@ public class QteSynchromize : MonoBehaviour
             GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject go in gos)
             {
-                if (go.GetPhotonView().isMine)
+                if (active.getPlayer() && go.GetPhotonView() == active.getPlayer().GetPhotonView())
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -86,7 +86,13 @@ public class QteSynchromize : MonoBehaviour
                     }
                 }
             }
-          
+            if (fillImage.fillAmount < 0.05 && otherImage.fillAmount < 0.05)
+            {
+                terminate = false;
+                fillImage.fillAmount = 0.0f;
+                otherImage.fillAmount = 0.0f;
+                fillAmount = 0.0f;
+            }
         }
 
     }
