@@ -441,6 +441,16 @@ PrefabInstance:
       propertyPath: playerPrefabName
       value: MaleFree2
       objectReference: {fileID: 0}
+    - target: {fileID: 7734298513615130085, guid: cb5d79476d5d7574091f6945f74949bb,
+        type: 3}
+      propertyPath: bleu
+      value: 
+      objectReference: {fileID: 1341691779}
+    - target: {fileID: 7734298513615130085, guid: cb5d79476d5d7574091f6945f74949bb,
+        type: 3}
+      propertyPath: rouge
+      value: 
+      objectReference: {fileID: 127491987}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5d79476d5d7574091f6945f74949bb, type: 3}
 --- !u!1 &137997532 stripped
@@ -935,6 +945,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95612694983450844, guid: 313ad0ef31f75b84f9f31c0528802fdd,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f297797635a2b7445ad2ea55cec7353b, type: 2}
     - target: {fileID: 4889916270699016, guid: 313ad0ef31f75b84f9f31c0528802fdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 104.494064
@@ -979,11 +994,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 95612694983450844, guid: 313ad0ef31f75b84f9f31c0528802fdd,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: f297797635a2b7445ad2ea55cec7353b, type: 2}
     - target: {fileID: 7121204889202188911, guid: 313ad0ef31f75b84f9f31c0528802fdd,
         type: 3}
       propertyPath: viewIdField
