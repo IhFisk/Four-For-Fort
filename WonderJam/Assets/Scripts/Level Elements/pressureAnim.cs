@@ -69,12 +69,15 @@ public class pressureAnim : MonoBehaviour
     {
         foreach (GameObject go in objectsToActive)
         {
-            Activate acv = go.GetComponent<Activate>();
-            acv.setActive(new_active);
-
-            if (thisObject)
+            if (go)
             {
-                acv.setPlayer(thisObject);
+                Activate acv = go.GetComponent<Activate>();
+                acv.setActive(new_active);
+
+                if (thisObject)
+                {
+                    acv.setPlayer(thisObject);
+                }
             }
         }
     }

@@ -14,7 +14,7 @@ public class QteSynchromize : MonoBehaviour
 
     public moveBarriere door;
 
-    private float cooldown = 0.15f;
+    private float cooldown = 0.2f;
     private float time = 0.0f;
 
     private bool terminate = false;
@@ -79,13 +79,16 @@ public class QteSynchromize : MonoBehaviour
         {
             if (active.getActive())
             {
-                if (active.activatingGo.GetComponent<PhotonView>())
+                foreach (GameObject go in active.activatingGos)
                 {
-                    if (active.activatingGo.GetPhotonView().isMine)
+                    if (go.GetComponent<PhotonView>())
                     {
-                        if (Input.GetKeyDown(KeyCode.E))
+                        if (go.GetPhotonView().isMine)
                         {
-                            door.incDoorPosition();
+                            if (Input.GetKeyDown(KeyCode.E))
+                            {
+                                door.incDoorPosition();
+                            }
                         }
                     }
                 }
