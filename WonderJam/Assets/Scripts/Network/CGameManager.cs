@@ -18,6 +18,10 @@ public class CGameManager : Photon.MonoBehaviour
         ScoreExtensions.SetScore(PhotonNetwork.player, 0);
     }
 
+    void Start()
+    {
+        StartGame();
+    }
 
     private void OnConnectedToMaster()
     {
@@ -61,7 +65,7 @@ public class CGameManager : Photon.MonoBehaviour
         objs[0] = enabledRenderers;*/
 
         // Spawn our local player
-        //PhotonNetwork.Instantiate(this.playerPrefabName, transform.position, Quaternion.identity, 0/*, objs*/);
+        GameObject player = PhotonNetwork.Instantiate(this.playerPrefabName, transform.position, Quaternion.identity, 0/*, objs*/);
         //spawnManager.spawnStart();
     }
 
