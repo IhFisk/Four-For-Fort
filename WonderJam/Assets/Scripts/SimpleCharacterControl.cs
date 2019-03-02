@@ -135,7 +135,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         // Getting the camera
         Transform camera = Camera.main.transform;
 
-        m_currentV = Mathf.Lerp(m_currentV, -v, Time.deltaTime * m_interpolation);
+        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
         m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
 
         // Getting the direction of the camera
