@@ -10,7 +10,6 @@ public class generateMaze : MonoBehaviour
     public Vector3 direction;
     
     private Vector3 baseTransform = new Vector3(0, 0, 0);
-    private bool isGenerate = true;
 
     // Start is called before the first frame update
     void Start()
