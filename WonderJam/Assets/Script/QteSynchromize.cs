@@ -79,13 +79,16 @@ public class QteSynchromize : MonoBehaviour
         {
             if (active.getActive())
             {
-                if (active.activatingGo.GetComponent<PhotonView>())
+                foreach (GameObject go in active.activatingGos)
                 {
-                    if (active.activatingGo.GetPhotonView().isMine)
+                    if (go.GetComponent<PhotonView>())
                     {
-                        if (Input.GetKeyDown(KeyCode.E))
+                        if (go.GetPhotonView().isMine)
                         {
-                            door.incDoorPosition();
+                            if (Input.GetKeyDown(KeyCode.E))
+                            {
+                                door.incDoorPosition();
+                            }
                         }
                     }
                 }
