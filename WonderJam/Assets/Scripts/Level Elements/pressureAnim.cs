@@ -9,7 +9,7 @@ public class pressureAnim : MonoBehaviour
     Color defaultColor;
     bool isPressured;
 
-    public GameObject objectToActive;
+    public GameObject[] objectsToActive;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +58,9 @@ public class pressureAnim : MonoBehaviour
 
     void activeGameObject(bool new_active)
     {
-        objectToActive.GetComponent<Activate>().setActive(new_active);
+        foreach(GameObject go in objectsToActive)
+        {
+            go.GetComponent<Activate>().setActive(new_active);
+        }
     }
 }
