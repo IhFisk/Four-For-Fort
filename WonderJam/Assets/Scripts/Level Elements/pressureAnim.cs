@@ -43,7 +43,7 @@ public class pressureAnim : MonoBehaviour
         plateMat[0].color = Color.green;
         plateMat[1].color = Color.green;
 
-        activeGameObject();
+        activeGameObject(true);
         // ajouter un petit son d'activation sympathique
     }
 
@@ -52,11 +52,13 @@ public class pressureAnim : MonoBehaviour
         transform.localScale += new Vector3(0, 0.1f, 0);
         plateMat[0].color = defaultColor;
         plateMat[1].color = defaultColor;
+
+        activeGameObject(false);
         // ajouter (peut-etre) un petit son de désactivation sympathique
     }
 
-    void activeGameObject()
+    void activeGameObject(bool new_active)
     {
-        objectToActive.GetComponent<Activate>().setActive(true);
+        objectToActive.GetComponent<Activate>().setActive(new_active);
     }
 }
