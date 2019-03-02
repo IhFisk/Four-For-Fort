@@ -136,7 +136,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         // Getting the camera
         Transform camera = Camera.main.transform;
 
-        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
+        m_currentV = Mathf.Lerp(m_currentV, -v, Time.deltaTime * m_interpolation);
         m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
 
         // Getting the direction of the camera
@@ -157,7 +157,7 @@ public class SimpleCharacterControl : MonoBehaviour {
 
 
 
-    private void TankUpdate()
+    /*private void TankUpdate()
     {
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
@@ -216,7 +216,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         }
 
         JumpingAndLanding();
-    }
+    }*/
 
     private void JumpingAndLanding()
     {
