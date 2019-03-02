@@ -14,7 +14,7 @@ public class QteSynchromize : MonoBehaviour
 
     public moveBarriere door;
 
-    private float cooldown = 0.15f;
+    private float cooldown = 0.2f;
     private float time = 0.0f;
 
     private bool terminate = false;

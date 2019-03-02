@@ -22,6 +22,7 @@ public class pressureAnim1 : MonoBehaviour
         activatingGos = new ArrayList();
     }
 
+
     public bool GetStatePressure()
     {
         return isPressured;
@@ -37,8 +38,19 @@ public class pressureAnim1 : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isPressured = false;
+        foreach(GameObject go in activatingGos)
+        {
+            if (go == other.gameObject)
+            {
+                activatingGos.Remove(go);
+                if (activatingGos.Count == 0)
+                    PlateDepressured();
+                break;
+            }
+                
+        }
         //retirer le Go qui a activé ?? 
-        PlateDepressured();
+        
     }
 
     void PlatePressured()
@@ -59,7 +71,7 @@ public class pressureAnim1 : MonoBehaviour
         plateMat[1].color = defaultColor;
 
         //activeGameObject(false);
-        activeGameObject(true);
+        activeGameObject(false);
         // ajouter (peut-etre) un petit son de désactivation sympathique
     }
 
