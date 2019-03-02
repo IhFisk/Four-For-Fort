@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class pressureAnim : MonoBehaviour
 {
-    public bool isPressured;
-
     Material plateMat;
     SphereCollider plateCollider;
     Color defaultColor;
+    bool isPressured;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +18,9 @@ public class pressureAnim : MonoBehaviour
         defaultColor = plateMat.color;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool GetStatePressure()
     {
-        
+        return isPressured;
     }
 
     private void OnTriggerEnter(Collider other)
