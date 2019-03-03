@@ -9,6 +9,10 @@ public class CAfficherTimer : Photon.PunBehaviour
 
 
     public Text TxtTimer;
+    public Text TxtTimerblue;
+    public Text TxtTimerred;
+    public GameObject blue;
+    public GameObject red;
     public CTimer timer;
     public string nomTimer;
 
@@ -21,5 +25,15 @@ public class CAfficherTimer : Photon.PunBehaviour
     {
 
         TxtTimer.text = timer.StringTimer;
+        if(timer.blueTimer!=0)
+        {
+            blue.SetActive(true);
+            TxtTimerblue.text = timer.StringTimerblue;
+        }
+        if (timer.redTimer != 0)
+        {
+            red.SetActive(true);
+            TxtTimerred.text = timer.StringTimerred;
+        }
     }
 }

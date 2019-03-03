@@ -36,7 +36,7 @@ public class CGameManager : Photon.MonoBehaviour
         while (PhotonNetwork.room != null || PhotonNetwork.connected == false)
             yield return 0;
 
-        Application.LoadLevel(Application.loadedLevel);
+        
 
     }
 
