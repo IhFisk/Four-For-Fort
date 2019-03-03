@@ -41,11 +41,18 @@ public class Checkpoint : MonoBehaviour
             {
                 float distance = Vector3.Distance(sp.transform.position, player.transform.position);
 
-                if(distance <= distanceMax)
+                Vector3 toTarget = (sp.transform.position - player.transform.position).normalized;
+
+                if (Vector3.Dot(toTarget, transform.forward) > 0)
                 {
-                    distanceMax = distance;
-                    positonToSpawn = sp.transform;
+                    if (distance <= distanceMax)
+                    {
+                        distanceMax = distance;
+                        positonToSpawn = sp.transform;
+                    }
                 }
+
+
             }
             playerIsPresent = false;
             player.transform.position = positonToSpawn.position;
