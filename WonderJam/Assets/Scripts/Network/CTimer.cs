@@ -43,7 +43,6 @@ public class CTimer : Photon.PunBehaviour
 
     void Update()
     {
-        GetComponent<AudioSource>().Play();
 
         if (PhotonNetwork.inRoom)
         {
@@ -171,6 +170,8 @@ public class CTimer : Photon.PunBehaviour
  
     public void StartTimer()
     {
+        GetComponent<AudioSource>().Play();
+
         //Time.timeScale = 1;
         Started = true;
         if (PhotonNetwork.isMasterClient)
