@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class pressureAnim : MonoBehaviour
 {
     Material[] plateMat;
@@ -15,6 +16,8 @@ public class pressureAnim : MonoBehaviour
     public GameObject thisObject;
     public AudioClip buttonClip;
     public AudioClip reverseClip;
+
+    private Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +57,7 @@ public class pressureAnim : MonoBehaviour
         activeGameObject(true);
 
         buttonPress.clip = buttonClip;
-        buttonPress.Play();
+        AudioSource.PlayClipAtPoint(buttonPress.clip, transform.position);
     }
 
     void PlateDepressured()
@@ -66,7 +69,7 @@ public class pressureAnim : MonoBehaviour
         activeGameObject(false);
 
         buttonPress.clip = reverseClip;
-        buttonPress.Play();
+        AudioSource.PlayClipAtPoint(buttonPress.clip, transform.position);
     }
 
     void activeGameObject(bool new_active)
