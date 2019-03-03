@@ -57,7 +57,7 @@ public class CTimer : Photon.PunBehaviour
                 */
                 //to play alone 
 
-                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 2 || PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 2)
+                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 2 && PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 2)
                 {
                     countdown += Time.deltaTime;
                     TimeSpan ts = TimeSpan.FromSeconds(countdownValue - countdown);
