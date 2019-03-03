@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class DoorOpening : MonoBehaviour
 {
+    public AudioClip doorOpen;
+    public AudioClip doorClose;
+
     private Activate active;
+    private AudioSource audioSource;
     Animator anim;
 
     // Start is called before the first frame update
@@ -20,12 +24,14 @@ public class DoorOpening : MonoBehaviour
         if(active.getActive() && !anim.GetBool("IsOpen"))
         {
             anim.SetBool("IsOpen", true);
+            AudioSource.PlayClipAtPoint(doorOpen, transform.position);
             //transform.Rotate(0, 90, 0, Space.World);
         }
         else if(!active.getActive() && anim.GetBool("IsOpen"))
         {
             anim.enabled = true;
             anim.SetBool("IsOpen", false);
+            AudioSource.PlayClipAtPoint(doorClose, transform.position);
             //transform.Rotate(0, -90, 0, Space.World);
         }
     }

@@ -1155,6 +1155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102ee243e7a404846bf85c231f7bc620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpen: {fileID: 8300000, guid: f138558efeaf27e4aac52a0b0d3364e2, type: 3}
+  doorClose: {fileID: 8300000, guid: 62e1931b89bc3484cb1b086be9d7a994, type: 3}
 --- !u!114 &1041867024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,6 +1170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  activatingGo: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1112017796
 GameObject:
   m_ObjectHideFlags: 0
