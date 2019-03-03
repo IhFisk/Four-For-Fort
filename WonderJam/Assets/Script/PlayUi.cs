@@ -33,7 +33,7 @@ public class PlayUi : MonoBehaviour
 
     void OnGUI()
     {
-
+        
         if (!PhotonNetwork.connected)
         {                        
             connectingText.gameObject.SetActive(true);
@@ -44,9 +44,7 @@ public class PlayUi : MonoBehaviour
             return;   //Wait for a connection
         }
         connectingText.gameObject.SetActive(false);
-        if (textMesh) {
-            textMesh.gameObject.GetComponent<Rigidbody>().useGravity = true;
-        }
+
 
 
         if (PhotonNetwork.room != null)
@@ -57,7 +55,8 @@ public class PlayUi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
+        Cursor.lockState = CursorLockMode.None;
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -73,6 +72,12 @@ public class PlayUi : MonoBehaviour
             }
 
         }
+        
+    }
+    void LateUpdate()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void StartGame()
