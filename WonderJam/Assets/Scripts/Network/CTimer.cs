@@ -139,12 +139,7 @@ public class CTimer : Photon.PunBehaviour
 
                     //finish = false;
                 }
-                if (Input.GetKeyDown(KeyCode.Tab))
-                {
-                    Cursor.visible = true;
-                    endGame();
-
-                }
+                
 
                 Hashtable h = PhotonNetwork.room.CustomProperties;
                 blueTimer = (float)h["blueTimer"];
@@ -153,6 +148,12 @@ public class CTimer : Photon.PunBehaviour
                 redTimer = (float)h["redTimer"];
                 TimeSpan tsr = TimeSpan.FromSeconds(redTimer);
                 StringTimerred = new DateTime(tsr.Ticks).ToString("mm:ss");
+            }
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                Cursor.visible = true;
+                endGame();
+
             }
         }
     }
