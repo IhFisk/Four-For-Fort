@@ -1305,6 +1305,7 @@ GameObject:
   - component: {fileID: 5898}
   - component: {fileID: 5900}
   - component: {fileID: 5901}
+  - component: {fileID: 3262508632433502876}
   m_Layer: 0
   m_Name: MaleFree2
   m_TagString: Player
@@ -1541,6 +1542,24 @@ MonoBehaviour:
     LayerIndex: 0
   - SynchronizeType: 1
     LayerIndex: 1
+--- !u!114 &3262508632433502876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ca30c36b506c64aafa127f12f968fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_moveSpeed: 2
+  m_turnSpeed: 200
+  m_jumpForce: 1
+  m_animator: {fileID: 5763}
+  m_rigidBody: {fileID: 5656}
+  m_controlMode: 1
 --- !u!1 &477
 GameObject:
   m_ObjectHideFlags: 0

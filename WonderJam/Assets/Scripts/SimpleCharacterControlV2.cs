@@ -20,6 +20,7 @@ public class SimpleCharacterControlV2 : Photon.MonoBehaviour
 
     private float m_currentV = 0;
     private float m_currentH = 0;
+    private float moveSpeedOriginal;
 
     private readonly float m_interpolation = 10;
     private readonly float m_walkScale = 0.33f;
@@ -34,7 +35,24 @@ public class SimpleCharacterControlV2 : Photon.MonoBehaviour
 
     private bool m_isGrounded;
     private List<Collider> m_collisions = new List<Collider>();
+
+    void Start()
+    {
+        m_rigidBody = GetComponent<Rigidbody>();
+        m_animator = GetComponent<Animator>();
+        moveSpeedOriginal = m_moveSpeed;
+    }
     
+    // FONCTION DE VITESSE DE DEPLACEMENT POUR MALUS
+    public void SlowPlayer(float amount)
+    {
+        m_moveSpeed = m_moveSpeed * amount;
+    }
+    public void restoreSpeed()
+    {
+        m_moveSpeed = moveSpeedOriginal;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         ContactPoint[] contactPoints = collision.contacts;
