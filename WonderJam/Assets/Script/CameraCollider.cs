@@ -43,6 +43,23 @@ public class CameraCollider : MonoBehaviour
             ignoredTagsList.Add(ignoreTags[i]);
         }
 
+        if (!target)
+        {
+            GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject go in gos)
+            {
+                if (go.GetPhotonView().isMine)
+                {
+                    Transform[] ts = go.GetComponentsInChildren<Transform>();
+                    foreach (Transform t in ts)
+                    {
+                        if (t.gameObject.name == "PlayerCameraTarget")
+                            target = t.gameObject;
+                    }
+                }
+            }
+
+        }
         renderers = target.GetComponentsInChildren<Renderer>();
     }
 

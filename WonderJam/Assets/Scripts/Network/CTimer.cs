@@ -57,7 +57,7 @@ public class CTimer : Photon.PunBehaviour
                 */
                 //to play alone 
 
-                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 1 || PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 1)
+                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 2 || PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 2)
                 {
                     countdown += Time.deltaTime;
                     TimeSpan ts = TimeSpan.FromSeconds(countdownValue - countdown);
@@ -83,6 +83,8 @@ public class CTimer : Photon.PunBehaviour
                     {
                         if (go.GetPhotonView().owner.GetTeam() == PhotonNetwork.player.GetTeam() && !go.GetPhotonView().isMine)
                         {
+                            PhotonView pv= go.GetPhotonView();
+                            PhotonPlayer pp= go.GetPhotonView().owner;
                             bool otherplayerfinished = (bool)go.GetPhotonView().owner.CustomProperties["finish"];
                             if (!otherplayerfinished)
                             {
@@ -180,6 +182,16 @@ public class CTimer : Photon.PunBehaviour
         }
         Hashtable h = PhotonNetwork.room.CustomProperties;
         time0 = (float)h["RefTime"];
+
+        bool playerfinish = (bool)PhotonNetwork.player.CustomProperties["finish"];
+        playerfinish = false;
+        Hashtable hash = new Hashtable();
+        hash.Add("finish", playerfinish);
+
+        bool playerfinishfirst = (bool)PhotonNetwork.player.CustomProperties["finishfirst"];
+        playerfinishfirst = false;
+        hash.Add("finishfirst", playerfinishfirst);
+        PhotonNetwork.player.SetCustomProperties(hash);
     }
 
     IEnumerator OnLeftRoom()
