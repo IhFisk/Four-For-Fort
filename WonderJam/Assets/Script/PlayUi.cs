@@ -37,12 +37,16 @@ public class PlayUi : MonoBehaviour
         if (!PhotonNetwork.connected)
         {                        
             connectingText.gameObject.SetActive(true);
-            textMesh.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            if (textMesh)
+            {
+                textMesh.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            }
             return;   //Wait for a connection
         }
         connectingText.gameObject.SetActive(false);
-        textMesh.gameObject.GetComponent<Rigidbody>().useGravity = true;
-
+        if (textMesh) {
+            textMesh.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
 
 
         if (PhotonNetwork.room != null)

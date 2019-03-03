@@ -13,8 +13,8 @@ public class Checkpoint : MonoBehaviour
     private Transform positonToSpawn;
 
     private void Start()
-    {
-        listSpawnPoint = GameObject.FindObjectsOfType<SpawnPoint>();
+    {     
+        listSpawnPoint = GetComponentsInChildren<SpawnPoint>();
     }
 
 

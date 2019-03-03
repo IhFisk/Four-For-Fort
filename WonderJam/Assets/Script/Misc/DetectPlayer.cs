@@ -9,12 +9,18 @@ public class DetectPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        somethingInside = true;
+        if(other.CompareTag("Player") || other.CompareTag("TriggerObject"))
+        {
+            somethingInside = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        somethingInside = false;
+        if (other.CompareTag("Player") || other.CompareTag("TriggerObject"))
+        {
+            somethingInside = false;
+        }
     }
 
     public bool getSometinhInside()

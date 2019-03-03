@@ -47,9 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower1: {fileID: 4696857270836568494}
   tower2: {fileID: 4696857271216112087}
-  coolDown: 3
-  speed: 100
-  amount: 0.1
+  coolDown: 0.5
+  speed: 50
+  amount: 0.05
+  valueTpY: 10
 --- !u!1001 &4695081125329589689
 PrefabInstance:
   m_ObjectHideFlags: 0

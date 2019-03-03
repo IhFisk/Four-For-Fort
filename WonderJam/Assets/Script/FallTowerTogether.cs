@@ -16,8 +16,10 @@ public class FallTowerTogether : MonoBehaviour
     public float speed = 1.0f;
     public float amount = 1.0f;
 
-    private Vector2 startingPos;
-    private Vector2 startingPos2;
+    public float valueTpY = 10.0f;
+
+    private Vector3 startingPos;
+    private Vector3 startingPos2;
 
 
     // Start is called before the first frame update
@@ -25,9 +27,12 @@ public class FallTowerTogether : MonoBehaviour
     {
         startingPos.x = tower1.transform.position.x;
         startingPos.y = tower1.transform.position.y;
+        startingPos.z = tower1.transform.position.z;
 
         startingPos2.x = tower2.transform.position.x;
         startingPos2.y = tower2.transform.position.y;
+        startingPos2.z = tower2.transform.position.z;
+
     }
 
     // Update is called once per frame
@@ -35,8 +40,6 @@ public class FallTowerTogether : MonoBehaviour
     {
         bool playerInside1 = tower1.GetComponent<DetectPlayer>().getSometinhInside();
         bool playerInside2 = tower2.GetComponent<DetectPlayer>().getSometinhInside();
-        Shake();
-
 
         if ((playerInside1 && !playerInside2) || (!playerInside1 && playerInside2))
         {
@@ -46,10 +49,8 @@ public class FallTowerTogether : MonoBehaviour
 
             if(timer > coolDown)
             {
-                tower1.GetComponent<Rigidbody>().useGravity = true;
-                tower2.GetComponent<Rigidbody>().useGravity = true;
-                tower1.GetComponent<Rigidbody>().isKinematic = false;
-                tower2.GetComponent<Rigidbody>().isKinematic = false;
+                setComponent(tower1, true);
+                setComponent(tower2, true);
             }
         }
 
@@ -57,17 +58,41 @@ public class FallTowerTogether : MonoBehaviour
         {
             timer = 0.0f;
         }
+
+
+        if(tower1.transform.position.y < startingPos.y - valueTpY)
+        {
+            timer = 0.0f;
+
+            setComponent(tower1, false);
+            setComponent(tower2, false);
+
+            tower1.transform.position = startingPos;
+            tower2.transform.position = startingPos2;
+        }
+
     }
 
 
     void Shake()
     {
-        Vector3 v = new Vector3(Mathf.Sin(Time.time * speed) * amount, tower1.transform.position.y, tower1.transform.position.z);
+        float shakeValue = Mathf.Sin(Time.time * speed) * amount;
+
+
+        Vector3 v = new Vector3(startingPos.x + shakeValue, tower1.transform.position.y, tower1.transform.position.z);
 
         tower1.transform.position = v;
 
-         v = new Vector3(Mathf.Sin(Time.time * speed) * amount, tower2.transform.position.y, tower2.transform.position.z);
 
-        tower2.transform.position = v;
+        Vector3 v2 = new Vector3(startingPos2.x + shakeValue, tower2.transform.position.y, tower2.transform.position.z);
+
+        tower2.transform.position = v2;
+    }
+
+
+    private void setComponent(GameObject go, bool new_value)
+    {
+        go.GetComponent<Rigidbody>().useGravity = new_value;
+        go.GetComponent<Rigidbody>().isKinematic = !new_value;
     }
 }
