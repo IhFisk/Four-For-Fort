@@ -6,6 +6,7 @@ public class SliderUI : MonoBehaviour
 {
 
     public Transform positionEquipe;
+    public GameObject joueur;
     public bool blueTeam;
 
     private Vector3 startPositonUI = new Vector3(0, 0, 0);
@@ -23,26 +24,6 @@ public class SliderUI : MonoBehaviour
         endPositionMap = tp.getEndPositon();
         startPositonUI = transform.position;
 
-        bool init = false;
-
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject go in players)
-        {
-            if (!init)
-            {
-                if (go.GetPhotonView().owner.GetTeam() == PunTeams.Team.blue && blueTeam)
-                {
-                    positionEquipe = go.transform;
-                    init = true;
-                }
-                else
-                {
-                    positionEquipe = go.transform;
-                    init = true;
-                }
-            }
-        }
-        
 
         Debug.Log(endPositionMap);
 
@@ -51,8 +32,9 @@ public class SliderUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        positionEquipe = joueur.transform;
         float distance = Vector3.Distance(positionEquipe.position, endPositionMap);
-
+;
         transform.position = Vector3.Lerp(startPositonUI, endPositonUI.position, distance/ distanceTotal);
     }
 }
