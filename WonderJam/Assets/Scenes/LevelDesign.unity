@@ -6115,6 +6115,11 @@ PrefabInstance:
       propertyPath: bleu
       value: 
       objectReference: {fileID: 1276525726}
+    - target: {fileID: 7734298513615130085, guid: cb5d79476d5d7574091f6945f74949bb,
+        type: 3}
+      propertyPath: player2PrefabName
+      value: MaleFree2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5d79476d5d7574091f6945f74949bb, type: 3}
 --- !u!114 &267625367 stripped
@@ -22986,6 +22991,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7815711717194859917, guid: beff00bd261622e489e1696da510dd89,
+        type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 267625367}
     - target: {fileID: 7581145046377820317, guid: beff00bd261622e489e1696da510dd89,
         type: 3}
       propertyPath: fin
