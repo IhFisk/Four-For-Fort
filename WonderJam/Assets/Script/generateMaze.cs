@@ -50,12 +50,9 @@ public class generateMaze : MonoBehaviour
     void Start()
     {
         matrice = new int[lines, columns];
-
-        PhotonView photonView = PhotonView.Get(this);
-        photonView.RPC("generateMazeRand", PhotonTargets.AllViaServer);
+        generateMazeRand();
     }
 
-    [PunRPC]
     public void generateMazeRand()
     {
    

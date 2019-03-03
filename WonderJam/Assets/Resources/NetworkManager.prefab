@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7734298513615130090}
   - component: {fileID: 7734298513615130085}
   - component: {fileID: 1949302512}
+  - component: {fileID: 137997533}
+  - component: {fileID: 137997534}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -46,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabName: MaleFree2
   player2PrefabName: Player2
-  rouge: {fileID: 7734298513615130084}
-  bleu: {fileID: 7734298513615130084}
+  rouge: {fileID: 0}
+  bleu: {fileID: 0}
 --- !u!114 &1949302512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +62,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6587c8104d7524f4280d0a68dd779f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &137997533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734298513615130084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6587c8104d7524f4280d0a68dd779f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &137997534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734298513615130084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fd8c5de741a36489e88bde942cfc41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  GameLenght: 300
+  StringTimer: 
+  countdown: 0
+  countdownValue: 10

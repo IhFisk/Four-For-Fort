@@ -26,6 +26,7 @@ public class generator : MonoBehaviour
     {
         baseTransformValue = transform.position;
 
+
         active = GetComponent<Activate>();
     }
 
@@ -40,9 +41,11 @@ public class generator : MonoBehaviour
 
                 for (int i = 0; i < numberObjectToSpawnPerLine; i++)
                 {
+                    GameObject currentObject = PhotonNetwork.Instantiate(goobjectToInstance.name, transform.position, Quaternion.identity, 0);
+                    GameObject objectSolution = PhotonNetwork.Instantiate(goobjectToInstance.name, otherSpawnPoint.position, Quaternion.identity, 0);
 
-                    GameObject currentObject = Instantiate(goobjectToInstance, transform.position, Quaternion.identity);
-                    GameObject objectSolution = Instantiate(goobjectToInstance, otherSpawnPoint.position, Quaternion.identity);
+                    /*GameObject currentObject = Instantiate(goobjectToInstance, transform.position, Quaternion.identity);
+                    GameObject objectSolution = Instantiate(goobjectToInstance, otherSpawnPoint.position, Quaternion.identity);*/
                     objectSolution.transform.localScale = new Vector3(objectSolution.transform.localScale.x, objectSolution.transform.localScale.y * 0.1f, objectSolution.transform.localScale.z);
 
 
