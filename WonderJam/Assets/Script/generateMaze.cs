@@ -39,7 +39,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class generateMaze : MonoBehaviour
+public class generateMaze : Photon.MonoBehaviour
 {
     public int lines = 1;
     public int columns = 1;
@@ -70,9 +70,12 @@ public class generateMaze : MonoBehaviour
         if (PhotonNetwork.isMasterClient)
         {
             generateMazeRand();
+            photonView.RPC("SetMaze", PhotonTargets.AllBufferedViaServer, matrice);
         }
 
     }
+
+    
 
     public void generateMazeRand()
     {
@@ -164,5 +167,11 @@ public class generateMaze : MonoBehaviour
     public int[,] getMaze()
     {
         return matrice;
+    }
+
+    [PunRPC]
+    public void SetMaze(int[,] m)
+    { 
+        matrice= m;
     }
 }
