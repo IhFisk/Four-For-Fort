@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 
 
-public class SimpleCharacterControl : MonoBehaviour {
+public class SimpleCharacterControl : MonoBehaviour
+{
 
     private enum ControlMode
     {
@@ -13,7 +14,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         Direct
     }
 
-    [SerializeField] private float m_moveSpeed = 2;
+    [SerializeField] public float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
     [SerializeField] private float m_jumpForce = 1;
     [SerializeField] private Animator m_animator;
@@ -28,6 +29,7 @@ public class SimpleCharacterControl : MonoBehaviour {
     private readonly float m_walkScale = 0.33f;
     private readonly float m_backwardsWalkScale = 0.16f;
     private readonly float m_backwardRunScale = 0.66f;
+    private float moveSpeedOriginal;
 
     private bool m_wasGrounded;
     private Vector3 m_currentDirection = Vector3.zero;
@@ -41,11 +43,12 @@ public class SimpleCharacterControl : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         ContactPoint[] contactPoints = collision.contacts;
-        for(int i = 0; i < contactPoints.Length; i++)
+        for (int i = 0; i < contactPoints.Length; i++)
         {
             if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
             {
-                if (!m_collisions.Contains(collision.collider)) {
+                if (!m_collisions.Contains(collision.collider))
+                {
                     m_collisions.Add(collision.collider);
                 }
                 m_isGrounded = true;
@@ -65,14 +68,15 @@ public class SimpleCharacterControl : MonoBehaviour {
             }
         }
 
-        if(validSurfaceNormal)
+        if (validSurfaceNormal)
         {
             m_isGrounded = true;
             if (!m_collisions.Contains(collision.collider))
             {
                 m_collisions.Add(collision.collider);
             }
-        } else
+        }
+        else
         {
             if (m_collisions.Contains(collision.collider))
             {
@@ -84,7 +88,7 @@ public class SimpleCharacterControl : MonoBehaviour {
 
     private void OnCollisionExit(Collision collision)
     {
-        if(m_collisions.Contains(collision.collider))
+        if (m_collisions.Contains(collision.collider))
         {
             m_collisions.Remove(collision.collider);
         }
@@ -92,38 +96,17 @@ public class SimpleCharacterControl : MonoBehaviour {
     }
 
 
-
-
-
-
-
-
-
-
-
     void Start()
     {
         m_rigidBody = GetComponent<Rigidbody>();
         m_animator = GetComponent<Animator>();
+        moveSpeedOriginal = m_moveSpeed;
     }
 
-	void Update () {
+    void Update()
+    {
         m_animator.SetBool("Grounded", m_isGrounded);
         Move();
-        /* switch(m_controlMode)
-        {
-            case ControlMode.Direct:
-                DirectUpdate();
-                break;
-
-            case ControlMode.Tank:
-                TankUpdate();
-                break;
-
-            default:
-                Debug.LogError("Unsupported state");
-                break;
-        }*/
         JumpingAndLanding();
         m_wasGrounded = m_isGrounded;
     }
@@ -140,7 +123,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
 
         // Getting the direction of the camera
-        Vector3 direction = -camera.forward * m_currentV + camera.right * m_currentH ;
+        Vector3 direction = -camera.forward * m_currentV + camera.right * m_currentH;
 
         float directionLength = direction.magnitude;
         direction.y = 0;
@@ -155,68 +138,15 @@ public class SimpleCharacterControl : MonoBehaviour {
         m_animator.SetFloat("MoveSpeed", -m_currentV); //current velocity of the player
     }
 
-
-
-    /*private void TankUpdate()
+    // FONCTION DE VITESSE DE DEPLACEMENT POUR MALUS
+    public void SlowPlayer(float amount)
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
-
-        bool walk = Input.GetKey(KeyCode.LeftShift);
-
-        if (v < 0) {
-            if (walk) { v *= m_backwardsWalkScale; }
-            else { v *= m_backwardRunScale; }
-        } else if(walk)
-        {
-            v *= m_walkScale;
-        }
-
-        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
-        m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
-
-        transform.position += transform.forward * m_currentV * m_moveSpeed * Time.deltaTime;
-        transform.Rotate(0, m_currentH * m_turnSpeed * Time.deltaTime, 0);
-
-        m_animator.SetFloat("MoveSpeed", m_currentV);
-
-        JumpingAndLanding();
+        m_moveSpeed = m_moveSpeed * amount;
     }
-
-    private void DirectUpdate()
+    public void restoreSpeed()
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
-
-        Transform camera = Camera.main.transform;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            v *= m_walkScale;
-            h *= m_walkScale;
-        }
-
-        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
-        m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
-
-        Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH;
-
-        float directionLength = direction.magnitude;
-        direction.y = 0;
-        direction = direction.normalized * directionLength;
-
-        if(direction != Vector3.zero)
-        {
-            m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * m_interpolation);
-
-            transform.rotation = Quaternion.LookRotation(m_currentDirection);
-            transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
-
-            m_animator.SetFloat("MoveSpeed", direction.magnitude);
-        }
-
-        JumpingAndLanding();
-    }*/
+        m_moveSpeed = moveSpeedOriginal;
+    }
 
     private void JumpingAndLanding()
     {
