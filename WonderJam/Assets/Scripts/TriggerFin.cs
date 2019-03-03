@@ -8,10 +8,14 @@ public class TriggerFin : MonoBehaviour
     public bool blue;
     public bool red;
     public bool once=false;
+
+    public AudioClip winClip;
+
+    private AudioSource winSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        winSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class TriggerFin : MonoBehaviour
                 red = true;
             }
         }
+
+        winSource.PlayOneShot(winClip);
         
     }
 }
