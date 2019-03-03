@@ -41,9 +41,9 @@ public class Checkpoint : MonoBehaviour
             {
                 float distance = Vector3.Distance(sp.transform.position, player.transform.position);
 
-                Vector3 toTarget = (sp.transform.position - player.transform.position).normalized;
+                Vector3 toTarget = (sp.transform.position - player.transform.position).normalized;                
 
-                if (Vector3.Dot(toTarget, transform.forward) > 0)
+                if (!(Vector3.Dot(toTarget, player.transform.forward) > 0))
                 {
                     if (distance <= distanceMax)
                     {
