@@ -5,7 +5,7 @@ using UnityEngine;
 public class DetectPlayer : MonoBehaviour
 {
 
-    private bool somethingInside;
+    private bool somethingInside = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,5 +15,10 @@ public class DetectPlayer : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         somethingInside = false;
+    }
+
+    public bool getSometinhInside()
+    {
+        return somethingInside;
     }
 }

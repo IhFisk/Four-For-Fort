@@ -45,4 +45,5 @@ MonoBehaviour:
   - TaggedPlayer
   - incFillAmount
   - generateMazeRand
+  - SetMaze
   DisableAutoOpenWizard: 1

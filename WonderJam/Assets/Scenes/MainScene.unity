@@ -8098,6 +8098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Maze (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 106582633, guid: 1865b5d973093944492d78aa538f4ec5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 106582634, guid: 1865b5d973093944492d78aa538f4ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.04
@@ -12225,10 +12229,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1383100608, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
-      propertyPath: m_Name
-      value: pressurePlate (Door) (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1383100609, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
       propertyPath: m_LocalPosition.x
       value: 104.41
@@ -12272,6 +12272,10 @@ PrefabInstance:
     - target: {fileID: 1383100609, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383100608, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
+      propertyPath: m_Name
+      value: pressurePlate (Door) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1813156260, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
       propertyPath: objectsToActive.Array.size
@@ -14640,10 +14644,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1383100608, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
-      propertyPath: m_Name
-      value: pressurePlate2 (Door) (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1383100609, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100.38
@@ -14687,6 +14687,10 @@ PrefabInstance:
     - target: {fileID: 1383100609, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383100608, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
+      propertyPath: m_Name
+      value: pressurePlate2 (Door) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1813156260, guid: a24bc22e709f7374bab3e30bb3672344, type: 3}
       propertyPath: objectsToActive.Array.size
