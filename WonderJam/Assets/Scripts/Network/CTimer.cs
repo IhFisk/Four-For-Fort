@@ -28,7 +28,7 @@ public class CTimer : Photon.PunBehaviour
     public float redTimer = 0;
     public bool finish = false;
     bool once = false;
-    
+    bool initSound = false;
 
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -48,29 +48,37 @@ public class CTimer : Photon.PunBehaviour
         {
             if (!Started)
             {
-                
+
+
+
                 if (countdown > countdownValue)
                     StartTimer();
-                /*
-                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 2 && PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 2)
+                
+                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 2  && PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 2)
                 {
+                    if (!initSound)
+                    {
+                        GetComponent<AudioSource>().Play();
+                        initSound = !initSound;
+                    }
                     countdown += Time.deltaTime;
                     TimeSpan ts = TimeSpan.FromSeconds(countdownValue - countdown);
                     StringTimer = new DateTime(ts.Ticks).ToString("mm:ss");
                 }
-                */
+                
                 //to play alone 
-
-                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 2 && PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 2)
+                /*
+                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 0 && PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 1)
                 {
                     countdown += Time.deltaTime;
                     TimeSpan ts = TimeSpan.FromSeconds(countdownValue - countdown);
                     StringTimer = new DateTime(ts.Ticks).ToString("mm:ss");
-                }
+                }*/
 
             }
             if (Started)
             {
+
                 timer = (float)PhotonNetwork.time - time0;
                 float t = timer - time0;
                 TimeSpan ts = TimeSpan.FromSeconds(timer);
@@ -170,7 +178,6 @@ public class CTimer : Photon.PunBehaviour
  
     public void StartTimer()
     {
-        GetComponent<AudioSource>().Play();
 
         //Time.timeScale = 1;
         Started = true;
