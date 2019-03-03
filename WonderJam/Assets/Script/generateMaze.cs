@@ -51,6 +51,7 @@ public class generateMaze : MonoBehaviour
     {
         matrice = new int[lines, columns];
         generateMazeRand();
+
     }
 
     public void generateMazeRand()
