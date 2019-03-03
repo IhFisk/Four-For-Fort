@@ -44,4 +44,5 @@ MonoBehaviour:
   - RequestForPickupTimes
   - TaggedPlayer
   - incFillAmount
+  - generateMazeRand
   DisableAutoOpenWizard: 1
