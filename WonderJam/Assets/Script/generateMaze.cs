@@ -44,6 +44,7 @@ public class generateMaze : Photon.MonoBehaviour
     public int lines = 1;
     public int columns = 1;
     public int[] choix;
+    public int randomfirst;
     public int[,] matrice;
 
     // Start is called before the first frame update
@@ -54,7 +55,7 @@ public class generateMaze : Photon.MonoBehaviour
         if (PhotonNetwork.isMasterClient)
         {
             generateMazeRand();
-            gameObject.GetPhotonView().RPC("SetMaze", PhotonTargets.AllBufferedViaServer, choix);
+            gameObject.GetPhotonView().RPC("SetMaze", PhotonTargets.AllBufferedViaServer, choix, randomfirst);
         }
 
     }
@@ -155,14 +156,14 @@ public class generateMaze : Photon.MonoBehaviour
     }
 
     [PunRPC]
-    public void SetMaze(int[] p_choix)
+    public void SetMaze(int[] p_choix, int first)
     {
         choix = p_choix;
-        generatefromMaze();
+        generatefromMaze(first);
     }
     
 
-    void generatefromMaze()
+    void generatefromMaze(int first)
     {
 
         // si on est à l'extrémité gauche [j(min)] ou droite [j(max)], on vérifie la case [i-1][j]
@@ -190,7 +191,7 @@ public class generateMaze : Photon.MonoBehaviour
 
             if (!init)
             {
-                savecol = Random.Range(0, columns);
+                savecol = first;
                 matrice[savelines, savecol] = 1; // initialisation premiere case
                 savelines++;
                 matrice[savelines, savecol] = 1; // initialisation premiere case
