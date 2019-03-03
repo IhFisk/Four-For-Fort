@@ -5408,7 +5408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107605230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.370316, y: -6.984, z: -2.96}
+  m_LocalPosition: {x: -15.723, y: -6.484, z: -2.653}
   m_LocalScale: {x: 0.10000006, y: 0.1, z: 0.10000006}
   m_Children:
   - {fileID: 6207634577518046144}
@@ -5448,8 +5448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7324ecd463b118e4cbc5f1c0865d75d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goobjectToInstance: {fileID: 1040152521, guid: 07cd6f5cd93095544ad201c9b03439c0,
-    type: 3}
+  goobjectToInstance: {fileID: 100000, guid: 388f1f078913dec41b77ea09d99ddf55, type: 3}
   numberObjectToSpawnPerLine: 10
   numberOfLine: 10
   generateFromMaze: 1
@@ -38213,7 +38212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9113580003364289294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 43.02, z: 4.2}
+  m_LocalPosition: {x: 0, y: 39.22, z: 4.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 107605231}
