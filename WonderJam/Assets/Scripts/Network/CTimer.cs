@@ -28,6 +28,8 @@ public class CTimer : Photon.PunBehaviour
     public float redTimer = 0;
     public bool finish = false;
     bool once = false;
+    
+
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -41,10 +43,12 @@ public class CTimer : Photon.PunBehaviour
 
     void Update()
     {
+
         if (PhotonNetwork.inRoom)
         {
             if (!Started)
             {
+                
                 if (countdown > countdownValue)
                     StartTimer();
                 /*
@@ -166,6 +170,8 @@ public class CTimer : Photon.PunBehaviour
  
     public void StartTimer()
     {
+        GetComponent<AudioSource>().Play();
+
         //Time.timeScale = 1;
         Started = true;
         if (PhotonNetwork.isMasterClient)
