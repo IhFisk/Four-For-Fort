@@ -9,6 +9,9 @@ public class generator : MonoBehaviour
     public int numberObjectToSpawnPerLine;
     public int numberOfLine;
 
+    public bool generateFromMaze;
+
+    public Transform otherSpawnPoint;
 
     public Vector3 direction;
     private Vector3 baseTransformValue = new Vector3(0, 0, 0);
@@ -33,14 +36,33 @@ public class generator : MonoBehaviour
         {
             for (int j = 0; j < numberOfLine; j++)
             {
-                transform.position = new Vector3(baseTransformValue.x, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y, baseTransformValue.z);
 
                 for (int i = 0; i < numberObjectToSpawnPerLine; i++)
                 {
-                    Instantiate(goobjectToInstance, transform.position, Quaternion.identity);
-                    transform.position += new Vector3(direction.x, 0, 0);
+
+                    GameObject currentObject = Instantiate(goobjectToInstance, transform.position, Quaternion.identity);
+                    GameObject objectSolution = Instantiate(goobjectToInstance, otherSpawnPoint.position, Quaternion.identity);
+                    objectSolution.transform.localScale = new Vector3(objectSolution.transform.localScale.x, objectSolution.transform.localScale.y * 0.1f, objectSolution.transform.localScale.z);
+
+
+                    if (generateFromMaze)
+                    {
+                        int[,] matrice = GetComponent<generateMaze>().getMaze();
+
+                        if(matrice[j, i] == 1)
+                        {
+                            currentObject.GetComponent<BoxCollider>().enabled = true;
+
+                            foreach (var child in objectSolution.GetComponentsInChildren<Renderer>())
+                            {
+                                child.material.color = Color.green;
+                            }
+                        }
+                    }
+                    transform.position += new Vector3(0, 0, direction.z);
                 }
-                transform.position += new Vector3(0, 0, direction.z);
+                transform.position += new Vector3(direction.x, 0, 0);
             }
             once = true;
         }
