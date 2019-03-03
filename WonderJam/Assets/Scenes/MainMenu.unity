@@ -3832,7 +3832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1968476592218994, guid: 313ad0ef31f75b84f9f31c0528802fdd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4889916270699016, guid: 313ad0ef31f75b84f9f31c0528802fdd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6848,11 +6848,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1155761462}
@@ -8149,7 +8149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e479506416ce1b4d9f74a0bab1ef9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMesh: {fileID: 777477080}
+  textMesh: {fileID: 0}
   connectingText: {fileID: 1155761459}
   sceneName: MainScene
 --- !u!1001 &1361067504
