@@ -8,11 +8,13 @@ public class pressureAnim : MonoBehaviour
     BoxCollider plateCollider;
     GameObject activatingGo;
     Color defaultColor;
+    AudioSource buttonPress;
     bool isPressured;
 
     public GameObject[] objectsToActive;
-
     public GameObject thisObject;
+    public AudioClip buttonClip;
+    public AudioClip reverseClip;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class pressureAnim : MonoBehaviour
         isPressured = false;
         plateMat = GetComponent<Renderer>().materials;
         defaultColor = plateMat[0].color;
+        buttonPress = GetComponent<AudioSource>();
     }
 
     public bool GetStatePressure()
@@ -49,7 +52,9 @@ public class pressureAnim : MonoBehaviour
         plateMat[1].color = Color.green;
 
         activeGameObject(true);
-        // ajouter un petit son d'activation sympathique
+
+        buttonPress.clip = buttonClip;
+        buttonPress.Play();
     }
 
     void PlateDepressured()
@@ -59,7 +64,9 @@ public class pressureAnim : MonoBehaviour
         plateMat[1].color = defaultColor;
 
         activeGameObject(false);
-        // ajouter (peut-etre) un petit son de désactivation sympathique
+
+        buttonPress.clip = reverseClip;
+        buttonPress.Play();
     }
 
     void activeGameObject(bool new_active)
