@@ -46,11 +46,31 @@ public class generateMaze : MonoBehaviour
 
     public int[,] matrice;
 
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        SerializeState(stream, info);
+    }
+
+    void SerializeState(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(matrice);
+        }
+        else
+        {
+            matrice = (int[,])stream.ReceiveNext();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         matrice = new int[lines, columns];
-        generateMazeRand();
+        if (PhotonNetwork.isMasterClient)
+        {
+            generateMazeRand();
+        }
 
     }
 

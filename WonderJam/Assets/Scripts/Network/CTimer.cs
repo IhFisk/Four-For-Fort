@@ -11,7 +11,7 @@ public class CTimer : Photon.PunBehaviour
 
 
     public float timer = 0;
-    public float GameLenght = 300;
+    //public float GameLenght = 300;
 
     [HideInInspector] public string StringTimer;
     private bool gameEnded = false;
@@ -54,7 +54,7 @@ public class CTimer : Photon.PunBehaviour
                 TimeSpan ts = TimeSpan.FromSeconds(timer);
                 if (ts.Seconds >= 0)
                     StringTimer = new DateTime(ts.Ticks).ToString("mm:ss");
-                if (timer > GameLenght)
+                /*if (timer > GameLenght)
                 {
                     if (!gameEnded)
                     {
@@ -66,7 +66,7 @@ public class CTimer : Photon.PunBehaviour
                         Debug.Log("youou");
                         endGame();
                     }
-                }
+                }*/
             }
         }
     }
