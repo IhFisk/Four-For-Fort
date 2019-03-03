@@ -32,7 +32,7 @@ public class CRandomMatchmaking : MonoBehaviour
 
     void OnGUI()
     {
-
+        Cursor.visible = true;
         if (!PhotonNetwork.connected)
         {
             GUI.Box(new Rect(0, 0, Screen.width, Screen.height), GUIContent.none);

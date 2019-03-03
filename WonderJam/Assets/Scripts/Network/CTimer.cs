@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using System;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
@@ -39,7 +40,7 @@ public class CTimer : Photon.PunBehaviour
             {
                 if (countdown > countdownValue)
                     StartTimer();
-                if(PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count ==2 && PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 2)
+                if (PunTeams.PlayersPerTeam[PunTeams.Team.blue].Count == 2 && PunTeams.PlayersPerTeam[PunTeams.Team.red].Count == 2)
                 {
                     countdown += Time.deltaTime;
                     TimeSpan ts = TimeSpan.FromSeconds(countdownValue - countdown);
@@ -68,25 +69,32 @@ public class CTimer : Photon.PunBehaviour
                     }
                 }*/
             }
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                Cursor.visible = true;
+                endGame();
+                
+            }
         }
     }
 
     void endGame()
     {
-        /*CJoueur[] players = FindObjectsOfType<CJoueur>(); // recupere tous les joueurs
-        foreach (CJoueur player in players)
-        {
-            player.endGame();
-            Debug.Log("end");
-            Time.timeScale = 1;
+            /*CJoueur[] players = FindObjectsOfType<CJoueur>(); // recupere tous les joueurs
+            foreach (CJoueur player in players)
+            {
+                player.endGame();
+                Debug.Log("end");
+                Time.timeScale = 1;
+                PhotonNetwork.LeaveRoom();
+            }
+            CCoolDown[] cds = FindObjectsOfType<CCoolDown>();
+            foreach (CCoolDown cd in cds)
+            {
+                cd.disableComp();
+            }*/
             PhotonNetwork.LeaveRoom();
-        }
-        CCoolDown[] cds = FindObjectsOfType<CCoolDown>();
-        foreach (CCoolDown cd in cds)
-        {
-            cd.disableComp();
-        }*/
-    }
+     }
 
  
     public void StartTimer()
@@ -105,6 +113,7 @@ public class CTimer : Photon.PunBehaviour
 
     IEnumerator OnLeftRoom()
     {
+        SceneManager.LoadScene("MainMenu");
         while (PhotonNetwork.room != null || PhotonNetwork.connected == false)
             yield return 0;
     }
