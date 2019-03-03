@@ -5392,6 +5392,7 @@ GameObject:
   - component: {fileID: 107605234}
   - component: {fileID: 107605233}
   - component: {fileID: 107605232}
+  - component: {fileID: 7565010884880712160}
   m_Layer: 0
   m_Name: MazeSpawner
   m_TagString: Untagged
@@ -5469,6 +5470,20 @@ MonoBehaviour:
   isActive: 0
   activatingGo: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &7565010884880712160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107605230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8dfaa5658ffe9e4792d97fbc026ee8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines: 10
+  columns: 10
 --- !u!1 &108360469
 GameObject:
   m_ObjectHideFlags: 0
@@ -38261,15 +38276,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 406f9698ff5ba874ebf1637ed686ef1b, type: 3}
---- !u!1 &1988107109457255453 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1041867021, guid: 406f9698ff5ba874ebf1637ed686ef1b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1988107108821335312}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1988107109457255426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1041867026, guid: 406f9698ff5ba874ebf1637ed686ef1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1988107108821335312}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1988107109457255453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1041867021, guid: 406f9698ff5ba874ebf1637ed686ef1b,
     type: 3}
   m_PrefabInstance: {fileID: 1988107108821335312}
   m_PrefabAsset: {fileID: 0}
