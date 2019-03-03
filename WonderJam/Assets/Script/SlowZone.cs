@@ -13,7 +13,7 @@ public class SlowZone : MonoBehaviour
     private GameObject player;
 
     // ATTRIBUTS PRIVEES
-    private SimpleCharacterControl Character_components;
+    private SimpleCharacterControlV2 Character_components;
     private GameObject particle;
     private bool playerPresent;
     private bool isSlow = false;
@@ -26,7 +26,7 @@ public class SlowZone : MonoBehaviour
     {
         playerPresent = true;
         player = other.gameObject;
-        Character_components = player.GetComponent<SimpleCharacterControl>();
+        Character_components = player.GetComponent<SimpleCharacterControlV2>();
     }
 
     private void OnTriggerExit(Collider other)
