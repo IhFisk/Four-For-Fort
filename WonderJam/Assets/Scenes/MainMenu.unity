@@ -4613,7 +4613,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 7.2134094, y: 0.05465889, z: 11.253681, w: 4.125947}
+  m_margin: {x: 7.386261, y: 0.18094444, z: 11.368282, w: 4.2196007}
   m_textInfo:
     textComponent: {fileID: 0}
     characterCount: 0
@@ -10210,6 +10210,7 @@ GameObject:
   - component: {fileID: 1716216176}
   - component: {fileID: 1716216178}
   - component: {fileID: 1716216177}
+  - component: {fileID: 1716216179}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -10273,6 +10274,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716216175}
   m_CullTransparentMesh: 0
+--- !u!114 &1716216179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716216175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47af51392b433934b987a2044e22851d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  over: {fileID: 21300000, guid: f3a13289da47f8a4a908bfd81317f16f, type: 3}
 --- !u!1 &1716520999 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1482795473614480, guid: c673fae664b13b44c859f10b25c1cbec,
