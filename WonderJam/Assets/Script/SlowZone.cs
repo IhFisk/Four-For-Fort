@@ -10,33 +10,38 @@ public class SlowZone : MonoBehaviour
 
 
     // ATTRIBUTS SERIALIZEFIELD
-    [SerializeField] public GameObject player;
+    private GameObject player;
 
     // ATTRIBUTS PRIVEES
     private SimpleCharacterControl Character_components;
     private GameObject particle;
     private bool playerPresent;
+    private bool isSlow = false;
+
     private readonly float waitTime = 2f;
     private float time;
-
-    void Awake()
-    {
-        Character_components = player.GetComponent<SimpleCharacterControl>();
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
         playerPresent = true;
+        player = other.gameObject;
+        Character_components = player.GetComponent<SimpleCharacterControl>();
     }
 
     private void OnTriggerExit(Collider other)
     {
         playerPresent = false;
+        Character_components.restoreSpeed();
+        ShowVortexEffect(false);
+        player = null;
+        isSlow = false;
+
     }
 
     public void ShowVortexEffect(bool value)
     {
-        if (value)
+        if (value && !particle)
         {
             particle = Instantiate(vortexGround, player.transform);
         }
@@ -51,16 +56,22 @@ public class SlowZone : MonoBehaviour
             time += Time.deltaTime;
             if (time > waitTime)
             {
-                Character_components.SlowPlayer(slowAmount);
+                if (!isSlow)
+                {
+                    Character_components.SlowPlayer(slowAmount);
+                    isSlow = true;
+                }
                 ShowVortexEffect(true);
                 time = 0f;
-            }
-
+            }     
         }
         else
         {
-            Character_components.restoreSpeed();
-            ShowVortexEffect(false);
+            if (player)
+            {
+                Character_components.restoreSpeed();
+                ShowVortexEffect(false);
+            }
         }
     }
 }
