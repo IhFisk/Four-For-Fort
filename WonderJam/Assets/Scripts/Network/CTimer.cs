@@ -77,6 +77,7 @@ public class CTimer : Photon.PunBehaviour
                 bool playerfinish = false;
                 if (finish)
                 {
+
                     float myTimer = timer;
 
                     foreach (GameObject go in gos)

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 
 
-public class SimpleCharacterControl : MonoBehaviour
+public class SimpleCharacterControl : Photon.MonoBehaviour
 {
 
     private enum ControlMode
@@ -16,7 +16,7 @@ public class SimpleCharacterControl : MonoBehaviour
 
     [SerializeField] public float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
-    [SerializeField] private float m_jumpForce = 1;
+    [SerializeField] private float m_jumpForce = 2;
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody m_rigidBody;
 
@@ -105,6 +105,10 @@ public class SimpleCharacterControl : MonoBehaviour
 
     void Update()
     {
+        /*if (!photonView.isMine)
+        {
+            return;
+        }*/
         m_animator.SetBool("Grounded", m_isGrounded);
         Move();
         JumpingAndLanding();
