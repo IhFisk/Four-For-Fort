@@ -25,8 +25,6 @@ public class generator : Photon.MonoBehaviour
     void Start()
     {
         baseTransformValue = transform.position;
-
-
         active = GetComponent<Activate>();
     }
 
@@ -42,12 +40,12 @@ public class generator : Photon.MonoBehaviour
                 for (int i = 0; i < numberObjectToSpawnPerLine; i++)
                 {                    
                     GameObject currentObject = PhotonNetwork.Instantiate(goobjectToInstance.name, transform.position, Quaternion.identity, 0);
-                    GameObject objectSolution = PhotonNetwork.Instantiate(goobjectToInstance.name, otherSpawnPoint.position, Quaternion.identity, 0);
-                    objectSolution.transform.localScale = new Vector3(objectSolution.transform.localScale.x, objectSolution.transform.localScale.y * 0.1f, objectSolution.transform.localScale.z);
-
 
                     if (generateFromMaze)
                     {
+                        GameObject objectSolution = PhotonNetwork.Instantiate(goobjectToInstance.name, otherSpawnPoint.position, Quaternion.identity, 0);
+                        objectSolution.transform.localScale = new Vector3(objectSolution.transform.localScale.x, objectSolution.transform.localScale.y * 0.1f, objectSolution.transform.localScale.z);
+
                         int[,] matrice = GetComponent<generateMaze>().getMaze();
 
                         if(matrice[j, i] == 1)
