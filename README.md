@@ -1,7 +1,7 @@
-# WonderJam1
+# Four For Fort
 https://github.com/SamuelBUSSON/WonderJam1
 
-**[UNITY][FR]** Petit jeu de course en multijoueur 2 vs 2
+**[UNITY][FR]** Deathrun 2 vs 2 en réseau
 
 Jeu réalisé durant la WonderJam UQAC 2019 en collaboration avec Ubisoft Saguenay
 
